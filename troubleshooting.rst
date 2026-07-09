@@ -6,18 +6,18 @@ I have performance issues. It's slow to paint vertex colors with Vertex Studio.
 
 Try the following settings and toggles under "View":
 
-1. Keep "Focus Node tab while active". If nothing happens, close Vertex Studio and open it again (you can deselect your Mesh from the Scene Tree and re-select it). The important thing is that Godot's Inspector must not be the active tab while painting (don't ask me why, but it removes most performance issues).
-2. Reduce "Draw Dist".
-3. Disable "Show Front Verts Only" (caveat: there's no occlusion now when drawing, so you might end up drawing and selecting backface vertices).
-4. Disable "Always Show Vertices" (only vertices under the cursor or under selections will appear)/
-5. And lastly, but only in extreme scenarios, disable "Real-time painting". Notice that with this disabled, when you paint, your changes will appear only when you release the mouse button.
+1. **Keep "Focus Node tab while active".** If nothing happens, close Vertex Studio and open it again (you can deselect your Mesh from the Scene Tree and re-select it). The important thing is that the Godot's Inspector must not be the active tab while painting (don't ask me why, but it removes most performance issues).
+2. **Reduce "Draw Dist".**
+3. **Disable "Show Front Verts Only"** (caveat: there's no occlusion now when drawing, so you might end up drawing and selecting backface vertices).
+4. **Disable "Always Show Vertices"** (only vertices under the cursor or under selections will appear)/
+5. **In extreme scenarios, disable "Real-time painting".** Notice that with this disabled, when you paint, your changes will appear only when you release the mouse button.
 
 .. image:: _static/images/vertex_studio_godot_troubleshooting-1.jpeg
 
 .. image:: _static/images/vertex_studio_godot_troubleshooting-2.jpeg
 
 
-Secondly, try zooming in the Godot 3D Viewport, getting as close as you can to your mesh and to the vertices that you want to work with, specially in denser meshes.
+Lastly, **try zooming in the Godot 3D Viewport**, getting as close as you can to your mesh and to the vertices that you want to work with, specially in denser meshes.
 Zoomed out, thousands of vertices being rendered under the brush:
 
 .. image:: _static/images/vertex_studio_godot_troubleshooting-3.jpeg
@@ -33,14 +33,14 @@ Vertex Colors do not appear in my model
 
 .. image:: _static/images/vertex_studio_godot_troubleshooting-5.jpeg
 
-- If you are outside Vertex Studio and your model still does not show vertex colors, the mesh's material is not using the vertex color information. You can use Godot's `StandardMaterial3D`, then check `Vertex Color`, `Use as Albedo`.
+- If you are outside Vertex Studio and your model still does not show vertex colors, the mesh's material is not using the vertex color information. You can use Godot's ``StandardMaterial3D``, then check ``Vertex Color``, ``Use as Albedo``.
 
 .. image:: _static/images/vertex_studio_godot_troubleshooting-6.jpeg
 
-- If you want Vertex Studio to place the `StandardMaterial3D` in your mesh automatically, choose `StandardMaterial3D` in "Material - On Commit".
+- If you want Vertex Studio to place the ``StandardMaterial3D`` in your mesh automatically, choose ``StandardMaterial3D`` in "Material - On Commit".
 
 .. image:: _static/images/vertex_studio_godot_troubleshooting-7.jpeg
-
+````
 When I paint, nothing happens
 ---------------------------------------
 
@@ -77,8 +77,8 @@ I can't see all of the mesh's vertices. The vertex I want is not showing up or I
 .. image:: _static/images/vertex_studio_godot_troubleshooting-12.jpeg
 
 - Make sure you don't have a selection active with other vertices. If you have an active selection you can either:
-	- Add more vertices (choose one of the selection tools, then hold `Shift` while making a new selection).
-	- Or Deselect everything or invert selection.
+	- Add more vertices to the selection (choose one of the selection tools, then hold ``Shift`` while making a new selection).
+	- Or deselect everything or invert selection.
 
 .. image:: _static/images/vertex_studio_godot_troubleshooting-13.jpeg
 

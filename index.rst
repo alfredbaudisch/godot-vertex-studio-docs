@@ -13,6 +13,14 @@ documentation for details.
 .. toctree::
    :hidden:
    :maxdepth: 4
-   :caption: Troubleshooting
+   :caption: Quickstart
+   
+   installation
+   how-to-use
+
+.. toctree::
+   :hidden:
+   :maxdepth: 4
+   :caption: FAQ
    
    troubleshooting

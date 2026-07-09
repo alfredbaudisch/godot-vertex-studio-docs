@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Vertex Studio Documentation'
+project = 'Vertex Studio'
 copyright = '2026, Alfred Reinold Baudisch'
 author = 'Alfred Reinold Baudisch'
 
@@ -25,3 +25,6 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
+html_css_files = [
+    'custom.css',
+]
