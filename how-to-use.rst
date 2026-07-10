@@ -83,7 +83,31 @@ If you want, you can first ``Erase from Selection`` (2) to clear the colors from
 .. image:: _static/images/tut-lasso.png
 
 .. note::	
-    DEVELOPER NOTE: The lasso tool is one of my favorite tools in the addon, even though it's not the main selling point (which is "painting vertices"), but it's one of the most useful tools when dealing with complex scenes and models (alongside ``Vertex Groups``), since it saves so much time by allowing for complex and weirdly shaped selections.
+    DEVELOPER NOTE: The lasso tool is one of my favorite tools in the addon, even though it's not the main selling point (which is "painting vertices"), but it's one of the most useful tools when dealing with complex scenes and models (alongside ``Vertex Groups`` and painting individual ``Split Shared Vertices``), since it saves so much time by allowing for complex and weirdly shaped selections.
+
+Part 3: Color swatches and palettes
+---------------------------------------------------------------------------
+
+Let's add some more colors to the archway, from our a custom palette.
+
+.. video:: _static/videos/vertexstudio-tutorial03.mp4
+  :width: 100%
+
+1. In the main panel or the tools popup, you can click the main color row to open the color picker. After you choose a color, you can click the ``+`` button to **add the color as a reusable swatch**. To remove a color, **right click a swatch**.
+
+.. image:: _static/images/tut-swatch.png
+
+2. You can import colors from PNG images by clicking the ``...`` button at the right side of "Swatches" and choose ``Import PNG Palette...``. For example, you can import palettes from Lospec (https://lospec.com/palette-list). Note that the PNG does not need to be in the project folder.
+
+.. image:: _static/images/tut-importpalette.png
+
+.. image:: _static/images/tut-picopalette.png
+
+3. After you add your own swatches or import from an external file, you can save the palette as a Godot Resource file by clicking the ``...`` button and choosing ``Save Palette...``. Afterwards, you can load these reusable palettes by choosing ``Load Palette...``.
+
+
+TODO
+-----
 
 - Paint a simple rock
 - Paint base instance vs world instance
