@@ -29,17 +29,17 @@ Zoomed in, just local vertices being rendered, the interface responsiveness is f
 Vertex Colors do not appear in my model
 ---------------------------------------
 
-- If you have Vertex Studio active, make sure your mesh has the "Setup Material".
+- If you have Vertex Studio active, make sure your mesh has the "Setup Material" (either unlit or lit).
 
-.. image:: _static/images/vertex_studio_godot_troubleshooting-5.jpeg
+.. image:: _static/images/trouble-setupmaterial.png
 
 - If you are outside Vertex Studio and your model still does not show vertex colors, the mesh's material is not using the vertex color information. You can use Godot's ``StandardMaterial3D``, then check ``Vertex Color``, ``Use as Albedo``.
 
 .. image:: _static/images/vertex_studio_godot_troubleshooting-6.jpeg
 
-- If you want Vertex Studio to place the ``StandardMaterial3D`` in your mesh automatically, choose ``StandardMaterial3D`` in "Material - On Commit".
+- If you want Vertex Studio to place the ``StandardMaterial3D`` in your mesh automatically, choose ``StandardMaterial3D`` in "Material - On restore".
 
-.. image:: _static/images/vertex_studio_godot_troubleshooting-7.jpeg
+.. image:: _static/images/trouble-materialrestore.png
 ````
 When I paint, nothing happens
 ---------------------------------------
@@ -48,9 +48,9 @@ When I paint, nothing happens
 
 .. image:: _static/images/vertex_studio_godot_troubleshooting-8.jpeg
 
-- **No vertex color information in the material:** make sure the mesh's material uses the vertex color. If you are in Vertex Studio, you can also click "Setup Material" to use a material designed specially for the studio.
+- **No vertex color information in the material:** make sure the mesh's material uses the vertex color. If you are in Vertex Studio, you can also click "Setup Unlit" or "Setup Lit" to use a material designed specially for the studio.
 
-.. image:: _static/images/vertex_studio_godot_troubleshooting-5.jpeg
+.. image:: _static/images/trouble-setupmaterial.png
 
 
 - **Wrong channel:** Make sure you are painting in the RGBA channel.
@@ -90,3 +90,8 @@ The Split Shared Verts view mode is active, but vertices still show up as a sing
 Split vertices work only on hard edges. You can either make flat and hard faces with the 3D software of your choice, like Blender or you can use Vertex Studio "Paint Normals" brush and paint individual faces and vertices as hard or smooth. By painting vertices hard, they are automatically split. By painting them smooth, they are welded as a merged vertex.
 
 .. image:: _static/images/vertex_studio_godot_troubleshooting-15.jpeg
+
+The scene file with the MeshInstance3D where I painted vertex colors is too big and/or is taking too long to load
+---------------------------------------
+
+Save the scene as a binary scene (``.scn``) instead of a text scene (``.tscn``).

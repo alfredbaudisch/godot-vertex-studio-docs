@@ -11,7 +11,7 @@ Download and extract
 .. image:: _static/images/installation-addons-folder.png
 
 .. note::	
-    Vertex Studio requires **Godot 4.3 or higher**. Compatible with Godot 4.3, 4.4, 4.5, 4.6, and 4.7.
+    Vertex Studio requires **Godot 4.3 or higher**.
 
 
 Activate the addon
@@ -27,7 +27,8 @@ Open the addon
 Now, anytime you click on a ``MeshInstance3D`` in the Scene Tree and you activate the 3D Workspace, the Vertex Studio button will be available in the toolbar.
 
 .. image:: _static/images/installation-showaddon3dscene.png
+.. image:: _static/images/installation-showaddon3dscene2.png
 
 Click the button to open Vertex Studio.
 
-.. image:: _static/images/installation-activate-addon.png
+.. thumbnail:: _static/images/installation-activate-addon.png
