@@ -186,6 +186,15 @@ Let's create a basic level with multiple instances of the "Rock" mesh and learn 
     
     If you want to paint the base scene (base mesh), you must always open the base scene first, as instructed in step 4.
 
+    .. image:: _static/images/tut-mesh-data.png
+
+
+7. If you want, you can enable ``Editable Children`` in the "Scenario" scene, select the ``Ground`` node and paint shadows where there are rocks. This is also not going to affect the ``Ground`` base scene, only this specific instance in the "RockLevel" scene.
+
+.. image:: _static/images/tut-editable-children.png
+
+.. image:: _static/images/tut-shadow-ground.png
+
 
 Non-destructive workflow with Variations
 -----------------------------------------
