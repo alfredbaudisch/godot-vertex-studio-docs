@@ -11,6 +11,8 @@ Is there undo and redo support?
 
 Yes, undo history is implemented, you can undo and redo normally in Godot.
 
+.. _faq-max-triangles:
+
 What is the maximum amount of triangles per mesh that Vertex Studio can handle?
 ---------------------------------------------------------------------
 
