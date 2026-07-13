@@ -15,7 +15,7 @@ Here's a preview of before and after the tutorial. It's the same models with the
 Project and addon setup
 -----
 
-If you want to follow along with the tutorial, you can download the sample project here. Extract the zip file and open the project in Godot.
+If you want to follow along with the tutorial, you can download the sample project here. Extract the zip file and open the project in Godot. (TODO: ADD LINKS)
 
 Then, download and activate the addon in your Godot project (the sample project does not come with the addon). See the :doc:`installation` page for more details.
 

@@ -34,6 +34,13 @@ See the :doc:`quickstart-guide` page.
 .. image:: _static/videos/vertexstudio-final-result.gif
 
 
+Need help?
+----------
+
+See the :doc:`faq` and the :doc:`troubleshooting` pages.
+
+If you need further help, check Vertex Studio's itch.io forum. (TODO: ADD LINKS)
+
 .. toctree::
    :hidden:
    :maxdepth: 4
