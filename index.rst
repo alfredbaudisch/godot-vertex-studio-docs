@@ -28,7 +28,7 @@ Vertext Studio is complete solution for editing vertex colors and vertex normals
 .. toctree::
    :hidden:
    :maxdepth: 4
-   :caption: Questions and Answers
+   :caption: Support
    
    faq
    troubleshooting

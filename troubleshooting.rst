@@ -4,15 +4,16 @@ Troubleshooting
 I have performance issues. It's slow to paint vertex colors with Vertex Studio.
 ----------------------------
 
-Try the following settings and toggles under "View":
+Try the following settings and toggles under "View", in order of importance:
 
-1. **Keep "Focus Node tab while active".** If nothing happens, close Vertex Studio and open it again (you can deselect your Mesh from the Scene Tree and re-select it). The important thing is that the Godot's Inspector must not be the active tab while painting (don't ask me why, but it removes most performance issues).
+1. **Keep "Hide Inspector while active".** If nothing happens, close Vertex Studio and open it again (you can deselect your Mesh from the Scene Tree and re-select it). The important thing is that the Godot's Inspector must not be the active tab while painting (don't ask me why, but it removes most performance issues).
 2. **Reduce "Draw Dist".**
-3. **Disable "Show Front Verts Only"** (caveat: there's no occlusion now when drawing, so you might end up drawing and selecting backface vertices).
-4. **Disable "Always Show Vertices"** (only vertices under the cursor or under selections will appear)/
-5. **In extreme scenarios, disable "Real-time painting".** Notice that with this disabled, when you paint, your changes will appear only when you release the mouse button.
+3. **Disable "Always Show Vertices"** (only vertices under the cursor or under selections will appear).
+4. **Disable "Show Wireframe"**.
+5. **Disable "Show Front Verts Only"** (caveat: there's no occlusion now when drawing, so you might end up drawing and selecting backface vertices).
+6. **In extreme scenarios, disable "Real-time painting".** Notice that with this disabled, when you paint, your changes will appear only when you release the mouse button.
 
-.. image:: _static/images/vertex_studio_godot_troubleshooting-1.jpeg
+.. image:: _static/images/trouble-performance-priorities.png
 
 .. image:: _static/images/vertex_studio_godot_troubleshooting-2.jpeg
 
