@@ -8,7 +8,7 @@ Vertex Studio Documentation
 
 Vertex Studio is a **complete solution for editing, painting and managing vertex colors and vertex normals** of 3D meshes inside Godot. It has tools for:
 
-- Painting and filling vertices (brush, eraser, fill, opacity adjustment, brush falloff, color palettes, bucket fill, color replacement by threshold, RGBA channel selection).
+- Painting and filling vertices (brush, eraser, opacity adjustment, brush falloff, color palettes, bucket fill, blur, color replacement by threshold, RGBA channel selection).
 - Selecting vertices (lasso, rectangle and ellipse selection); linked by material selection (like Blender).
 - Changing vertex and face normals between hard and smooth.
 - Painting individual vertices or split vertices (shared vertices of hard edges, allowing for multipler colors in a single "physical vertex").
@@ -17,6 +17,9 @@ Vertex Studio is a **complete solution for editing, painting and managing vertex
 - Switching between mesh variations at runtime and blending between variations.
 
 See the :doc:`features` page for every feature in detail.
+ 
+.. video:: _static/videos/vertexstudio-features-overview-captioned.mp4
+  :width: 100%
 
 Where to get it
 ----------------
@@ -40,6 +43,22 @@ See the :doc:`quickstart-guide` page.
    installation
    quickstart-guide
    shortcuts
+   advanced-tutorial
+
+.. toctree::
+   :hidden:
+   :maxdepth: 4
+   :caption: Manual
+
+   interface
+   material-setup
+   view-modes
+   brushes
+   selection-tools
+   vertex-groups
+   variations
+   runtime-and-api
+   settings-and-preferences
 
 .. toctree::
    :hidden:

@@ -3,6 +3,9 @@ Features
 
 Vertex Studio is a **complete solution for editing, painting and managing vertex colors and vertex normals** of 3D meshes inside Godot.
 
+.. video:: _static/videos/vertexstudio-features-overview-captioned.mp4
+  :width: 100%
+
 Vertex Studio features in details:
 
 .. note::
@@ -96,5 +99,3 @@ Vertex Studio brushers and selections work in both **perspective and orthographi
 
   * **Free** includes the core, essential features for vertex painting: brush, eraser, bucket fill, opacity, point selection, select all / deselect, swatches & palettes (including PNG import), blur, debug views, view modes and the non-destructive material setup.
   * **Pro** ⭐: everything from Free plus lasso / rectangle / ellipse & linked selection, invert selection, split-vertex painting, paint precision, paint normals, vertex groups, replace colors, single-channel R/G/B/A painting, falloff curve editing, and Variations + the VSRuntime node (Inspector/runtime switching and snapshot blending).
-
-
