@@ -14,10 +14,10 @@ If you want to follow along with the tutorial, you can download the sample proje
 
 Then, download and activate the addon in your Godot project (the sample project does not come with the addon). See the :doc:`installation` page for more details.
 
-Material setup and basic vertex painting with the brush and the eraser
----------------------------------------------------------------------------
+Material setup
+---------------------------------------
 
-Let's start by painting the archway base mesh.
+Let's start by setting up the material with the material provided by Vertex Studio (it's not required, but it's allows you to toggle between different debug views).
 
 .. video:: _static/videos/vertexstudio-tutorial01.mp4
   :width: 100%
@@ -33,17 +33,27 @@ Let's start by painting the archway base mesh.
     
     You can alternate between the original material and the setup materials any time by clicking the buttons as needed. This workflow is actually encouraged to visualize between the Studio and the final result.
 
-4. Select the ``Paint Vertex Colors`` (aka "Brush") tool by clicking its icon, pressing :kbd:`B`, or by opening the tools popup in the viewport with :kbd:`Ctrl+F` and clicking the Brush icon.
+.. warning::
+    Make sure your mesh has at least one material assigned. If for example you use one of Godot's procedural meshes (like the Plane, Cube, Torus, etc.), you need to manually assign a material to the mesh before being able to paint the vertex colors with Vertex Studio.
+
+    .. image:: _static/images/tut-torus-mesh.png
+    .. image:: _static/images/vertex_studio_godot_troubleshooting-8.jpeg
+
+
+Basic vertex painting with the brush and the eraser
+---------------------------------------------------------------------------
+
+1. Select the ``Paint Vertex Colors`` tool (or simply "Brush Tool") by clicking its icon, pressing :kbd:`B`, or by opening the tools popup in the viewport with :kbd:`Ctrl+F` and clicking the Brush icon.
 
 .. image:: _static/images/tut-brushicon.png
 
-5. Select a color, reduce the opacity, and paint the inner part of the archway.
+2. Select a color, reduce the opacity, and paint the inner part of the archway.
 
 .. image:: _static/images/tut-pickcolor-andopacity.png
 
-6. In the viewport, you can increase and decrease the brush size by holding :kbd:`]` and :kbd:`[` respectively. You can also cycle through colors from the palette (Swatches) by pressing :kbd:`X` (or also open the tools popup with :kbd:`Ctrl+F`, but from now on, I'm not going to repeat this information).
+3. In the viewport, you can increase and decrease the brush size by holding :kbd:`]` and :kbd:`[` respectively. You can also cycle through colors from the palette (Swatches) by pressing :kbd:`X` (or also open the tools popup with :kbd:`Ctrl+F`, but from now on, I'm not going to repeat this information).
 
-7. If you make a mistake, you can undo normally or use the ``Eraser`` tool by clicking its icon or by pressing :kbd:`Shift+E`. The eraser is also a brush, thus opacity also affects how hard or soft the eraser is.
+4. If you make a mistake, you can undo normally or use the ``Eraser`` tool by clicking its icon or by pressing :kbd:`Shift+E`. The eraser is also a brush, thus opacity also affects how hard or soft the eraser is.
 
 .. image:: _static/images/tut-eraser.png
 
@@ -133,4 +143,54 @@ In ``Paint Settings`` expand the ``Falloff`` section and click the graph. Create
 
 .. image:: _static/videos/vertexstudio-tutorial05-before-after.gif
 
-Ah, the magic of vertex colors!
+Base mesh and world instances
+---------------------------------
+
+Let's create a basic level with multiple instances of the "Rock" mesh and learn how to paint the base mesh and the world instances separately.
+
+.. video:: _static/videos/vertexstudio-tutorial06.mp4
+  :width: 100%
+
+1. Create a new Godot scene, call it "RockLevel".
+
+2. Add an instance of the "Scenario" scene that we painted before.
+
+.. note::
+    If you click a ``MeshInstance3D`` in the Scene Tree and Vertex Studio opens, you can just click "Vertex Studio" in the 3D Viewport toolbar to close it.
+
+3. Now, add multiple instances of the "Rock" mesh to the scene, translating and scaling them to cover the whole level.
+
+.. note::
+    Remember that you can duplicate a scene in the Scene Tree by right clicking it and choosing "Duplicate" or by pressing :kbd:`Ctrl+D`.
+
+
+.. video:: _static/videos/vertexstudio-tutorial07.mp4
+  :width: 100%
+
+4. Open the "Rock" base scene (click its ``Open in Editor`` button in the Scene Tree) and paint the bottom part of it with black, to create the effect of ambient occlusion, and save it.
+
+.. image:: _static/images/tut-open-in-editor.png
+
+5. Go back to the "RockLevel" scene and notice that all instances of the rock were updated automatically with the vertex colors that you painted in the base scene. 
+
+.. note::
+    If you any of your rock instances were not updated with your changes from the base mesh, it means that this world instance already has mesh and vertex data overriden (i.e. you probably edited this specific instance with Vertex Studio).
+    
+    If you want to revert back to the base mesh, you have to either delete the instance from the Scene Tree and add a new instance or use ``Variations`` (see next section).
+
+
+6. Now, paint additional shadows and details in the world instances of the "Rock" scene. Instead of opening the "Rock" scene, paint directly in the "Rock" nodes in the Scene Tree of the "RockLevel" scene.
+
+.. note::
+    When you paint a mesh with Vertex Studio, the changes are saved in the scene file which is currently active in Godot's 3D Viewport. That means painting these world instances affect only the instances in the current scene, since the mesh data and vertex data is inlined in the scene file.
+    
+    If you want to paint the base scene (base mesh), you must always open the base scene first, as instructed in step 4.
+
+
+Non-destructive workflow with Variations
+-----------------------------------------
+
+The previous workflow is destructive for the local/world instances, which means that if you ever vertex paint a local/world instance, you will not be able to revert back to the base mesh anymore.
+
+In those cases, in order to revert back to the base mesh, you have to either delete the instance from the Scene Tree and add a new instance or use a very powerful Vertex Studio Pro feature called ``Variations`` as well the ``VSRuntime`` node, that allows you to switch variations in the Inspector and at runtime or to revert back to the base scene at any time, in a non-destructive way.
+
