@@ -1,11 +1,16 @@
-Quickstart Guide (Part 1)
+Quickstart Guide
 =========================================
 
 Vertext Studio is complete solution for editing vertex colors and vertex normals of 3D meshes in Godot. See all the features in the :doc:`features` page.
 
 This is a how to use / quickstart guide / tutorial to get you started with Vertex Studio.
 
-!! TODO: this is the scene before and after !!
+Final result
+---------------------------------------
+
+Here's a preview of before and after the tutorial. It's the same models with the same textures, without vertex colors and with vertex colors applied, without lighting, since the materials here are unshaded.
+
+.. image:: _static/videos/vertexstudio-final-result.gif
 
 Project and addon setup
 -----
@@ -174,10 +179,9 @@ Let's create a basic level with multiple instances of the "Rock" mesh and learn 
 5. Go back to the "RockLevel" scene and notice that all instances of the rock were updated automatically with the vertex colors that you painted in the base scene. 
 
 .. note::
-    If you any of your rock instances were not updated with your changes from the base mesh, it means that this world instance already has mesh and vertex data overriden (i.e. you probably edited this specific instance with Vertex Studio).
+    If you any of your rock instances were not updated with your changes from the base mesh, it means that this world instance already has embedded mesh and vertex data overriden (i.e. you probably edited this specific instance with Vertex Studio).
     
     If you want to revert back to the base mesh, you have to either delete the instance from the Scene Tree and add a new instance or use ``Variations`` (see next section).
-
 
 6. Now, paint additional shadows and details in the world instances of the "Rock" scene. Instead of opening the "Rock" scene, paint directly in the "Rock" nodes in the Scene Tree of the "RockLevel" scene.
 
@@ -196,10 +200,57 @@ Let's create a basic level with multiple instances of the "Rock" mesh and learn 
 .. image:: _static/images/tut-shadow-ground.png
 
 
-Non-destructive workflow with Variations
+Non-destructive workflow with Variations (PRO ONLY)
 -----------------------------------------
 
-The previous workflow is destructive for the local/world instances, which means that if you ever vertex paint a local/world instance, you will not be able to revert back to the base mesh anymore.
+The previous workflow is destructive for the local/world instances, which means that if you ever vertex paint a local/world instance, you will not be able to revert back to the base mesh anymore in that specific instance. This is fine in most cases for details specific to meshes in level design, for example.
 
-In those cases, in order to revert back to the base mesh, you have to either delete the instance from the Scene Tree and add a new instance or use a very powerful Vertex Studio Pro feature called ``Variations`` as well the ``VSRuntime`` node, that allows you to switch variations in the Inspector and at runtime or to revert back to the base scene at any time, in a non-destructive way.
+.. image:: _static/images/tut-overriden.png
 
+But if you ever want to revert back to the base mesh, you have to either delete the instance from the Scene Tree and add a new instance again or use a Vertex Studio Pro feature called ``Variations`` as well the ``VSRuntime`` node, that allows you to switch variations in the Inspector and during runtime, and to also revert back to the base scene at any time, in a non-destructive way.
+
+For example, if you want to create different seasons or a day night cycle in your game, you can use ``Variations`` to create different variations of the base mesh and switch between them in the Inspector and during runtime/in-game as well.
+
+In your simple tutorial scene, let's create variations of the rock mesh in order to demonstrate the ``Variations`` and the ``VSRuntime`` node features.
+
+.. note::
+    Internally, ``Variations`` are called ``Snapshots``, since they capture a full snapshot of Vertex Studio, attributes and vertex data at the time a snapshot is saved/overwritten: normal and surface topology, vertex colors, vertex groups and active selection. That means with snapshots/variations you can save and restore selections, switch different vertex groups, alternate different vertex and face hardness and smoothness (thanks to the ``Paint Normals`` brush), and of course, alternate different vertex colors as well.
+
+.. video:: _static/videos/vertexstudio-tutorial08-variations.mp4
+  :width: 100%
+
+1. Open the "Rock" base scene, clear any active selection (click the ``Deselect`` button or press :kbd:`Shift+L`) and press the ``Erase All`` button.
+
+2. Select the bottom vertices and fill them with black with around 80%-90% opacity.
+
+3. OPTIONAL: while the selection is still active, you can create a ``Vertex Group`` with the bottom vertices, to avoid having to re-select the bottom vertices again from scratch in the feature. For that, expand the ``Vertex Groups`` section and click the ``+`` button, name the group and save it. Now, you can double click the vertex group at any time to re-select those same vertices.
+
+.. image:: _static/images/tut-vertex-groups.png
+
+4. Go to the ``Variations`` section and click the ``+`` button to create a new variation. Variations are saved as Godot's Resource files, so choose a folder and save the variation resource file, for example "base-shadow".
+
+.. image:: _static/images/tut-variations.png
+
+5. Now paint the top part with a different color, for example, green, and create another variation, for example "base-shadow-and-moss". Now you can double click a variation name to switch to that variation.
+
+6. If you ever make changes and want them stored in a variation, you must click the save button.
+
+.. image:: _static/images/tut-save-variation.png
+
+7. Now, clear the selection and erase everything from the mesh yet again. Now the base mesh has no vertex colors.
+
+8. Scroll down, and in the ``Runtime`` section, click ``Add runtime node``. Check the Scene Tree that a ``VSRuntime`` node was added as a children of the ``MeshInstance3D`` node. 
+
+.. image:: _static/images/tut-add-runtime-node.png
+
+.. image:: _static/images/tut-vsruntime.png
+
+9. Hit save and go back to the "RockLevel" scene. Now, notice the "Rock" nodes have a ``VSRuntime`` node as a children. If you can't see, right-click a "Rock" node and check ``Editable Children``.
+
+.. image:: _static/images/tut-level-vsruntime.png
+
+10. Click a ``VSRuntime`` node and notice the ``Variation`` dropdown in the Inspector. Alternate between variations and see the result in the viewport. Also, you can select ``None`` to revert back to the base mesh, and if you overrode the mesh in this world instance, you can click ``Restore base instance`` anytime.
+
+.. image:: _static/images/tut-vsruntime-variation.png
+
+.. image:: _static/images/tut-vsruntime-restorebase.png
