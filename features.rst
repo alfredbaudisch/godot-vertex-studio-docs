@@ -1,7 +1,7 @@
 Features
 =========================================
 
-Vertex Studio is a Godot plugin for **editing, managing and painting vertex colors and vertex normals** of 3D meshes. A complete solution for dealing with vertices inside the Godot editor.
+Vertex Studio is a Godot plugin for **editing, managing and painting vertex colors and vertex normals** of 3D meshes. A complete solution for vertex painting inside the Godot editor. Vertex Studio is a must-have tool for making games inspired by PS1, N64 or early PC games aesthetics, but it's useful even in modern workflows, since vertex coloring can also be used for texture blending and masking.
 
 .. video:: _static/videos/vertexstudio-features-overview-captioned.mp4
   :width: 100%

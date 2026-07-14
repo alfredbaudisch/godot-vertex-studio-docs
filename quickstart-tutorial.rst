@@ -1,9 +1,12 @@
 Quickstart Tutorial
 =========================================
 
-Vertext Studio is complete solution for editing vertex colors and vertex normals of 3D meshes in Godot. See all the features in the :doc:`features` page.
+This is a how to use / quickstart guide / tutorial to get you started with Vertex Studio, a Godot plugin.
 
-This is a how to use / quickstart guide / tutorial to get you started with Vertex Studio.
+What is Vertex Studio?
+----------------------
+
+See the :doc:`features` page for more details.
 
 Final result
 ---------------------------------------
