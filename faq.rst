@@ -1,6 +1,11 @@
 FAQ
 =========================================
 
+Is Vertex Studio a standalone application?
+---------------------------------------
+
+No, it's a Godot Engine plugin (addon). It requires you to use it in a project inside the Godot editor.
+
 What is the minimum version of Godot required?
 ---------------------------------------
 
@@ -48,3 +53,19 @@ As another example, I painted that character's feet while it was neutral:
 And this is how the selected vertices look like when the character is in another pose. The current limitation is that the vertices always appear in the position of the neutral pose ("floating" away from the mesh). But even if the vertices are "floating", you can still paint them, like here:
 
 .. image:: _static/images/skeletal-mesh-02-feet.png
+
+.. _faq-vertex-painting-and-model-changes:
+
+What happens when I vertex paint a mesh with Vertex Studio and then update the source model externally (like Blender), does the updated mesh gets the previously painted vertex colors?
+------------------------------------------------------------------------------------------------
+
+No. You cannot recover the vertex colors in this case not even with variations, since what you do in Vertex Studio is saved inline in the ``MeshInstance3D`` node, it overrides the mesh data from the external source file (Blender, GLTF, OBJ or FBX file), and by changing the source file, vertex and normal positions might change, which doesn't match the inlined data.
+
+What you do in Vertex Studio is saved inline in the scene file that contains the ``MeshInstance3D`` node:
+
+.. image:: _static/images/tut-mesh-data.png
+
+What happens when I vertex paint a mesh with Vertex Studio and then update the source model externally (like Blender), does the ``MeshInstance3D`` node gets the model changes?
+------------------------------------------------------------------------------------------------
+
+No. See :ref:`faq-vertex-painting-and-model-changes` above.
