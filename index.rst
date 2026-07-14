@@ -42,9 +42,7 @@ See the :doc:`quickstart-tutorial` page.
 Need help?
 ----------
 
-See the :doc:`faq` and the :doc:`troubleshooting` pages.
-
-If you need further help, check Vertex Studio's itch.io forum. (TODO: ADD LINKS)
+See the :doc:`support` page.
 
 .. toctree::
    :hidden:
@@ -79,3 +77,4 @@ If you need further help, check Vertex Studio's itch.io forum. (TODO: ADD LINKS)
    
    faq
    troubleshooting
+   support
