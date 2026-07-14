@@ -78,3 +78,4 @@ See the :doc:`support` page.
    faq
    troubleshooting
    support
+   license
