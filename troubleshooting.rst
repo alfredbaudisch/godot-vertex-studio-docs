@@ -96,3 +96,10 @@ The scene file with the MeshInstance3D where I painted vertex colors is too big 
 ---------------------------------------
 
 Save the scene as a binary scene (``.scn``) instead of a text scene (``.tscn``).
+
+The plugin font and icon colors do not match my Godot's theme
+---------------------------------------
+
+This shouldn't happen since the plugin watches for themes changes in the editor with (``NOTIFICATION_THEME_CHANGED``). But if for some reason you face this, in order to make the plugin match Godot's theme, disable and re-enable the plugin or restart the editor.
+
+.. image:: _static/images/trouble-icon-colors.png
