@@ -27,3 +27,24 @@ I even tested painting a mesh with 2.5 million triangles, and Godot nor the addo
 When dealing with denser meshes, be sure to disable ``Show Wireframe``, ``Show Vertices`` and ``Always Show Vertices`` under ``View``.
 
 .. image:: _static/images/faq-disable-performance.png
+
+.. _faq-skeletal-mesh:
+
+Can I paint the vertex colors of skeletal/skinned meshes? Can I paint on animated meshes?
+--------------------------------------------------------------------------------------------
+
+Yes. Vertex Studio supports both static and skeletal/skinned meshes, even if the mesh is in the middle of an animation.
+
+But if you are going to save selections into variations or vertex groups, it's recommended to make the selection in a neutral pose.
+
+For example, with this Banjo-Kazooie-inspired character, I selected the first frame of the idle animation in the ``AnimationPlayer``, then selected the eyes and saved the selection as a variation:
+
+.. image:: _static/images/skeletal-mesh-neutral-pose.png
+
+As another example, I painted that character's feet while it was neutral:
+
+.. image:: _static/images/skeletal-mesh-01-feet.png
+
+And this is how the selected vertices look like when the character is in another pose. The current limitation is that the vertices always appear in the position of the neutral pose ("floating" away from the mesh). But even if the vertices are "floating", you can still paint them, like here:
+
+.. image:: _static/images/skeletal-mesh-02-feet.png

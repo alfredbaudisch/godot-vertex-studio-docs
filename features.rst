@@ -1,7 +1,7 @@
 Features
 =========================================
 
-Vertex Studio is a **complete solution for editing, painting and managing vertex colors and vertex normals** of 3D meshes inside Godot.
+Vertex Studio is a Godot plugin for **editing, managing and painting vertex colors and vertex normals** of 3D meshes. A complete solution for dealing with vertices inside the Godot editor.
 
 .. video:: _static/videos/vertexstudio-features-overview-captioned.mp4
   :width: 100%
@@ -15,13 +15,16 @@ Vertex Studio brushers and selections work in both **perspective and orthographi
 
 * **Vertex color painting**
 
-  * **Paint Vertex Colors brush** (:kbd:`B`): a **screen-space brush** (its size is in pixels, it stays consistent regardless of zoom) that paints vertex colors straight onto the mesh in the viewport.
+  * **Paint Vertex Colors brush** (:kbd:`B`): a screen-space brush (consistent size in pixels regardless of zoom) for coloring vertices straight onto the mesh in the viewport.
+
+    * Supports painting both on **static** and **skeletal/skinned animated meshes** (even if the mesh is in the middle of an animation). See the :ref:`FAQ <faq-skeletal-mesh>`.
+
   * **Adjustable opacity, applied stroke-relative**: like Blender and Photoshop, holding and dragging over the same vertices applies the opacity **once per stroke** instead of stacking up and darkening as you pass over them again.
   * **Eraser** (:kbd:`Shift+E`): the eraser is also a brush, so its opacity controls how **hard or soft** it erases, restoring vertices back toward white.
   * **Bucket Fill**: fill (:kbd:`G`) **every vertex** (``Fill All``) or just the **active selection** (``Fill Selection``), plus the reverse, ``Erase All`` / ``Erase from Selection``. Fill respects opacity, so filling repeatedly builds the color up.
-  * **Blur**: a Laplacian smoothing brush that nudges each vertex's color toward the average of its **1-ring neighbours** (crossing hard-edge seams too), for soft gradients and quick cleanup.
-  * **Replace Colors by threshold** ⭐: swap one color for another across the whole mesh, within an adjustable tolerance.
-  * Full **RGBA** painting (default) or **single-channel painting (R / G / B / A)** ⭐: paint into **just one channel** using the ``Value`` slider while leaving the others untouched, ideal for **packing masks** (for example ambient occlusion in one channel and a texture blend mask in another).
+  * **Blur**: a smoothing brush that nudges each vertex's color toward the average of its **1-ring neighbours** (crossing hard-edge seams too), creating soft gradients.
+  * **Replace Colors by threshold** ⭐: swap one color for another in a selection or the whole mesh, within an adjustable tolerance.
+  * Full **RGBA** painting (default) or **single-channel painting (R / G / B / A)** ⭐: paint into **just one channel** or set the channel's grayscale value from 0.0 to 1.0 with a dedicated ``Value`` slider while leaving the others untouched, ideal for **packing masks** (for example, ambient occlusion in one channel and a texture blend mask in another, like how it has been `done in Banjo-Kazooie levels <https://alfredbaudisch.com/experiment-logs/banjo-kazooie-n64-environments-and-levels-texture-blending-and-vertex-color-usage/>`_).
   * **Brush falloff curves** ⭐: shape the brush's strength profile with Godot's **curve editor**. Different falloff graphs effectively become **different brushes and "stamps"**.
   * **Paint Precision tool** ⭐: a point-and-click tool with **no brush size** that locks onto the exact vertex/point under the cursor, so you can paint **individual vertices** accurately (and individual split corners of hard edges).
 
@@ -74,7 +77,7 @@ Vertex Studio brushers and selections work in both **perspective and orthographi
 
   * **One-click paint material** (``Setup Lit`` / ``Setup Unlit``) applied as a per-surface **override**, so your mesh's real materials are **never touched** and are **automatically restored** when you close Vertex Studio (or immediately via ``Restore Material``).
   * **Debug channel view**: isolate and inspect the **R, G, B or A** channel on its own.
-  * **View toggles** useful for debugging, readability and performance: ``Show Textured``, ``Show Vertex Colors``, ``Show Front Verts Only`` and ``Always Show Vertices`` .
+  * **View toggles** useful for debugging, readability and performance: ``Show Textured``, ``Show Vertex Colors``, ``Show Front Verts Only`` (aka "X-Ray" view) and ``Always Show Vertices`` .
 
 * **Base mesh & world instances workflow**
 
@@ -91,11 +94,11 @@ Vertex Studio brushers and selections work in both **perspective and orthographi
 
 * **Performance considerations**
 
-  * A per-mesh **occlusion BVH** plus camera-memoized visibility helps hide occluded vertices and tries to keep the workflow fast even on higher poly, self-occluding meshes (NOTICE: it's not a silver bullet).
+  * A per-mesh **occlusion BVH** alongside a camera memoized visibility helps hide occluded vertices and tries to keep the workflow fast even on higher poly, self-occluding meshes (NOTICE: it's not a silver bullet).
   * On denser meshes realtime rebuilds try to automatically defer to the end of the stroke.
   * See the FAQ: :ref:`What is the maximum amount of triangles per mesh that Vertex Studio can handle? <faq-max-triangles>`
 
 * **Free versus Pro ⭐**
 
   * **Free** includes the core, essential features for vertex painting: brush, eraser, bucket fill, opacity, point selection, select all / deselect, swatches & palettes (including PNG import), blur, debug views, view modes and the non-destructive material setup.
-  * **Pro** ⭐: everything from Free plus lasso / rectangle / ellipse & linked selection, invert selection, split-vertex painting, paint precision, paint normals, vertex groups, replace colors, single-channel R/G/B/A painting, falloff curve editing, and Variations + the VSRuntime node (Inspector/runtime switching and snapshot blending).
+  * **Pro** ⭐: everything from Free plus lasso / rectangle / ellipse & linked selection tools, invert selection, split-vertex painting, paint precision, paint normals, vertex groups, replace colors, single-channel R/G/B/A painting, falloff curve editing, and Variations + the VSRuntime node (Inspector/runtime switching and snapshot blending).

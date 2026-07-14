@@ -1,4 +1,4 @@
-Quickstart Guide
+Quickstart Tutorial
 =========================================
 
 Vertext Studio is complete solution for editing vertex colors and vertex normals of 3D meshes in Godot. See all the features in the :doc:`features` page.
