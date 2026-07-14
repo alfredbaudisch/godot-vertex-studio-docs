@@ -11,7 +11,9 @@ Vertex Studio is a Godot plugin for **editing, managing and painting vertex colo
 It has tools for:
 
 - Painting and filling vertices (brush, eraser, opacity adjustment, brush falloff, color palettes, bucket fill, blur, color replacement by threshold, individual RGBA channel selection).
-- Support to both static and skeletal/skinned animated meshes.
+
+   - Supports both static and skeletal/skinned animated meshes.
+
 - Selecting vertices (lasso, rectangle and ellipse selection); linked by material selection (like Blender).
 - Changing vertex and face normals between hard and smooth.
 - Painting individual vertices or split vertices (shared vertices of hard edges, allowing for multipler colors in a single "physical vertex").
@@ -19,7 +21,7 @@ It has tools for:
 - Creating and managing variations/snapshots of vertex colors, selections and vertex smoothness topology, creating non-destructive variations of a single mesh.
 - Switching between mesh variations at runtime and blending between variations.
 
-See the :ref:`features-details` section for detailed information about each feature.
+See :ref:`features-details` for detailed information about each feature.
  
 .. video:: _static/videos/vertexstudio-features-overview-captioned.mp4
   :width: 100%

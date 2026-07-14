@@ -28,3 +28,5 @@ html_static_path = ['_static']
 html_css_files = [
     'custom.css',
 ]
+
+html_baseurl = "https://alfredbaudisch.github.io/godot-vertex-studio-docs/"
