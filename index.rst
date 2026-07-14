@@ -19,7 +19,7 @@ It has tools for:
 - Creating and managing variations/snapshots of vertex colors, selections and vertex smoothness topology, creating non-destructive variations of a single mesh.
 - Switching between mesh variations at runtime and blending between variations.
 
-See the :doc:`features` page for every feature in detail.
+See the :ref:`features-details` section for detailed information about each feature.
  
 .. video:: _static/videos/vertexstudio-features-overview-captioned.mp4
   :width: 100%

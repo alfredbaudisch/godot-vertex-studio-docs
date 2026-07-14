@@ -6,7 +6,11 @@ Vertex Studio is a Godot plugin for **editing, managing and painting vertex colo
 .. video:: _static/videos/vertexstudio-features-overview-captioned.mp4
   :width: 100%
 
-Vertex Studio features in details:
+
+.. _features-details:
+
+Vertex Studio features in details
+---------------------------------
 
 .. note::
     Features marked with ⭐ are only available in the Pro edition.

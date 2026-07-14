@@ -4,7 +4,7 @@ Installation
 Download and extract
 ------------------------------
 
-- Download Vertex Studio from the Godot Asset Store (Free version) or from itch.io (Free and Pro versions). (TODO: ADD LINKS)
+- Download Vertex Studio from the Godot Asset Store (Free version) or from itch.io (Free and Pro versions). **⚠️(TODO: ADD LINKS)⚠️**
 - Extract the zip file
 - If you already have addons in your Godot project, move ``addons/vertex_studio`` into your ``addons`` folder, otherwise move the whole ``addons`` folder into your Godot project.
 
