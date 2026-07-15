@@ -3,7 +3,7 @@ Multi-texture blending with vertex colors
 
 Vertex colors are not used only in retro-styled games, they can also be used to store weights that can be used for all kinds of things in shaders, such as blending multiple textures. By painting vertex colors in the separate RGBA channels, you can use the value from ``0.0`` to ``1.0`` from these channels as weights to blend textures.
 
-Blending between two textures by painting in the ``A```` (Alpha) vertex color channel:
+Blending between two textures by painting in the ``A`` (Alpha) vertex color channel:
 
 .. image:: _static/images/textureblending-intro.gif
 
@@ -91,7 +91,7 @@ Then it's up to your shader to use this information in whatever way. In the case
 .. image:: _static/images/textureblending-paint-03-breakdown1.png
 
 .. note::
-    In the end, the ``Value`` slider is also technically a color, it represents a grayscale value range.
+    In the end, the ``Value`` slider is also technically a color, it represents a grayscale value range, where ``0.0`` is pure black and ``1.0`` is white.
 
 4. Now, just paint as you like. You can adjust the ``Opacity`` and the brush size (:kbd:`[` and :kbd:`]` in the viewport) to create even more blending and variation. You can also use the ``Eraser`` (:kbd:`Shift+E`) to remove parts of the painting, and with it in low opacity, you can create subtle transitions.
 
@@ -119,6 +119,26 @@ To visualize the what is currently painted in the separate channels, you can use
 Using vertex colors on top of the texture blending
 --------------------------------------------------
 
+.. image:: _static/images/textureblending-channels-painted.png
+
 Our shader multiplies (1) the vertex colors (2) with the final color that comes out of the texture blending (3). So it supports adding the vertex colors on top of the textures.
 
 .. image:: _static/images/textureblending-with-colors01.png
+
+.. video:: _static/videos/textureblending-painting-colors.mp4
+  :width: 100%
+
+1. After ``Swatches``, in ``Channel``, select the ``R`` channel, hold :kbd:`Shift` and click the ``G`` and the ``B`` channels, now, the ``R`` + ``G`` + ``B`` channels are selected additively and painting will affect all three channels at once.
+
+.. image:: _static/images/textureblending-channels-rgb-add.png
+
+.. note::
+    Why not click the ``RGBA`` button to select all channels at once? Because we already painted in the ``A`` channel. If we paint in the ``RGBA`` channel, it will override what we have painted previously in the ``A`` channel.
+
+    .. image:: _static/images/textureblending-channels-rgba.png
+
+2. Now, paint as you like. Notice how the color goes on top of the blended textures. If you erase, use the ``Fill Tool`` or ``Erase All Tool``, they are going to affect only the selected channels.
+
+3. You can inspect the colors painted. Like before, go to ``Material`` and click ``Setup Unlit``, in ``View > Debug`` click ``Off`` to visualize all channels at once or click ``R`` or ``G`` or ``B`` or ``A`` to visualize the colors and values in each channel.
+
+.. image:: _static/images/textureblending-channels-debug.png
