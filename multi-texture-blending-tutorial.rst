@@ -100,6 +100,18 @@ Then it's up to your shader to use this information in whatever way. In the case
 Visualizing the Alpha channel
 ------------------------------
 
+To visualize the what is currently painted in the separate channels, you can use the debug view modes of the Vertex Studio ``Setup Material``.
+
+.. video:: _static/videos/textureblending-viewmodes.mp4
+  :width: 100%
+
+1. Go to ``Material`` and click ``Setup Unlit``.
+
+2. In ``View > Debug`` click ``A`` to visualize the alpha channel.
+
+3. If you want to see your material back, in ``Material > On restore`` make sure the value is ``Original Material`` and then click the restore button.
+
+4. You can alternate between the setup material and your material as many times as needed.
 
 Using vertex colors on top of the texture blending
 --------------------------------------------------
