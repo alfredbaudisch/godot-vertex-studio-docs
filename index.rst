@@ -51,9 +51,15 @@ See the :doc:`support` page.
    
    features
    installation
-   quickstart-tutorial
    shortcuts
-   advanced-tutorial
+
+.. toctree::
+   :hidden:
+   :maxdepth: 4
+   :caption: Tutorials and Guides
+
+   quickstart-tutorial
+   multi-texture-blending-tutorial
 
 .. toctree::
    :hidden:
