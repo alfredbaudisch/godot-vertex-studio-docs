@@ -93,7 +93,10 @@ Then it's up to your shader to use this information in whatever way. In the case
 .. note::
     In the end, the ``Value`` slider is also technically a color, it represents a grayscale value range.
 
-4. Just paint as you like. You can adjust the ``Opacity`` and the brush size (:kbd:`[` and :kbd:`]` in the viewport) to create even more blending and variation. You can also use the ``Eraser`` (:kbd:`Shift+E`) to remove parts of the painting, and with it in low opacity, you can create subtle transitions.
+4. Now, just paint as you like. You can adjust the ``Opacity`` and the brush size (:kbd:`[` and :kbd:`]` in the viewport) to create even more blending and variation. You can also use the ``Eraser`` (:kbd:`Shift+E`) to remove parts of the painting, and with it in low opacity, you can create subtle transitions.
+
+.. tip::
+    Vertex Studio supports painting in the Godot 3D viewport both in Perspective and Orthographic views.
 
 .. image:: _static/images/textureblending-afterbefore.gif
 
@@ -115,3 +118,7 @@ To visualize the what is currently painted in the separate channels, you can use
 
 Using vertex colors on top of the texture blending
 --------------------------------------------------
+
+Our shader multiplies (1) the vertex colors (2) with the final color that comes out of the texture blending (3). So it supports adding the vertex colors on top of the textures.
+
+.. image:: _static/images/textureblending-with-colors01.png
