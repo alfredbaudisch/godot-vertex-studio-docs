@@ -71,6 +71,7 @@ See the :doc:`support` page.
    view-modes
    brushes
    selection-tools
+   rgba-channels
    vertex-groups
    variations
    runtime-and-api

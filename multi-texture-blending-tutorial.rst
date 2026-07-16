@@ -3,6 +3,8 @@ Multi-texture blending with vertex colors
 
 Vertex colors are not used only in retro-styled games, they can also be used to store weights that can be used for all kinds of things in shaders, such as blending multiple textures. By painting vertex colors in the separate RGBA channels, you can use the value from ``0.0`` to ``1.0`` from these channels as weights to blend textures.
 
+Vertex Studio supports painting in the separate RGBA channels, either individually or additively. See :doc:`rgba-channels`.
+
 Blending between two textures by painting in the ``A`` (Alpha) vertex color channel:
 
 .. image:: _static/images/textureblending-intro.gif
@@ -12,6 +14,8 @@ In this Banjo-Kazooie segment from the Spiral Mountain level that I recreated in
 .. thumbnail:: _static/images/textureblending-intro-bk.png
    :alt: Banjo-Kazooie texture blending
 
+.. note::
+    This tutorial requires Vertex Studio Pro ⭐.
 
 Sample project
 --------------
