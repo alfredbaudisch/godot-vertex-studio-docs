@@ -25,6 +25,9 @@ Files relevant to this tutorial are in the folder ``Advanced/RuntimeBlending``.
 .. note::
     Although the files downloaded here contain the same files as the :doc:`quickstart-tutorial` files, this new zip is different because it comes from another Git branch, containing a new folder (``Advanced/RuntimeBlending``).
 
+.. tip::
+    It's recommended that you finish the :doc:`quickstart-tutorial` before doing this tutorial.
+
 Setup
 -----
 
