@@ -3,6 +3,13 @@ Blending and changing variations in-game/at runtime
 
 Using the ``VSRuntime`` Node and API from Vertex Studio Pro, you can switch to another variation of a mesh or blend/tween between variations of a mesh at runtime. This is useful for creating dynamic effects in your game or simply using or switching between different variations of the same mesh, non-destructively.
 
+.. important::
+    Variations are a snapshot of everything related to a mesh in Vertex Studio at the time the Variation is saved. The variation includes the vertex colors, vertex topology (positions, normals, tangents), selections active in Vertex Studio and sets of vertex groups that you created(if any).
+
+    When you switch to another variation (or snapshot as they are called internally), all these changes are applied and the mesh changes to everything that is in the snapshot.
+
+    So are not only blending between vertex colors (which is already quite powerful and pretty cool), but if you optionally have different normals in different variation files for that mesh (for example, if you used the ``Paint Normals`` brush), you are also going to blend between different normals, creating truly different looks for the same mesh.
+
 .. image:: _static/images/variation-blending/variationtween.gif
 
 .. note::
