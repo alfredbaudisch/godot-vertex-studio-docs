@@ -146,3 +146,15 @@ Our shader multiplies (1) the vertex colors (2) with the final color that comes 
 3. You can inspect the colors painted. Like before, go to ``Material`` and click ``Setup Unlit``, in ``View > Debug`` click ``Off`` to visualize all channels at once or click ``R`` or ``G`` or ``B`` or ``A`` to visualize the colors and values in each channel.
 
 .. image:: _static/images/textureblending-channels-debug.png
+
+.. tip::
+    Vertex Studio inlines what you do in the :ref:`mesh data <faq-vertex-painting-and-model-changes>` in the Scene file. And since this is a high poly mesh, the file might get quite large. For that reason, you can save it as a binary scene ``scn`` instead of a text scene ``tscn``.
+
+Help me! Everything is white!
+------------------------------
+
+In case you close and re-open the scene in Vertex Studio, and the mesh is all white, it's just because Vertex Studio by default re-applies the setup material.
+
+What you painted is still there in the mesh data, it's just not being displayed. To fix this, in ``Material > On restore`` make sure the value is ``Original Material`` and then click the restore button. 
+
+.. image:: _static/images/texture-blending-white-restore-material.png
