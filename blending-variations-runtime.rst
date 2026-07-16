@@ -23,7 +23,7 @@ Download the sample project and sample code from `GitHub <https://github.com/alf
 Files relevant to this tutorial are in the folder ``Advanced/RuntimeBlending``.
 
 .. note::
-    Although the files downloaded here contain the same files as the :doc:`quickstart-tutorial` files, this new zip is different because it comesfrom another Git branch, containing a new folder (``Advanced/RuntimeBlending``).
+    Although the files downloaded here contain the same files as the :doc:`quickstart-tutorial` files, this new zip is different because it comes from another Git branch, containing a new folder (``Advanced/RuntimeBlending``).
 
 Setup
 -----
