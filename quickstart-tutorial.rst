@@ -202,6 +202,7 @@ Let's create a basic level with multiple instances of the "Rock" mesh and learn 
 
 .. image:: _static/images/tut-shadow-ground.png
 
+.. _tutorial-variations:
 
 Non-destructive workflow with Variations (PRO ONLY)
 -----------------------------------------

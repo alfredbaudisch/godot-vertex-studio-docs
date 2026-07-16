@@ -60,6 +60,7 @@ See the :doc:`support` page.
 
    quickstart-tutorial
    multi-texture-blending-tutorial
+   blending-variations-runtime
 
 .. toctree::
    :hidden:
