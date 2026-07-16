@@ -1,7 +1,7 @@
 Blending and changing variations in-game/at runtime
 =======================================================================
 
-Using the ``VSRuntime`` API from Vertex Studio Pro, you can switch to another variation of a mesh or blend/tween between variations of a mesh at runtime. This is useful for creating dynamic effects in your game or simply using or switching between different variations of the same mesh, non-destructively.
+Using the ``VSRuntime`` Node and API from Vertex Studio Pro, you can switch to another variation of a mesh or blend/tween between variations of a mesh at runtime. This is useful for creating dynamic effects in your game or simply using or switching between different variations of the same mesh, non-destructively.
 
 .. image:: _static/images/variation-blending/variationtween.gif
 
@@ -56,3 +56,74 @@ Examples:
 
 	# or...
 	runtime.variation = 2
+
+Blending / tweening between variations at runtime
+------------------------------------------------
+
+To blend / tween between variations at runtime, ``VSRuntime`` provides a public API with methods for GPU and CPU blending.
+
+- **GPU blending**: faster, but uses two custom shaders (lit or unlit), and your mesh cannot have a custom shader, as it's going to be overriden by the custom shader while it's blending.
+- **CPU blending**: slower, but your mesh can have a custom shader.
+
+.. warning::
+    Blending/tweening variations at runtime is VERY much still EXPERIMENTAL and there could be performance implications.
+
+    Changing to a variation directly and instantly (even at runtime, as shown above) is much faster and more efficient (and it's production ready).
+
+GPU blending
+^^^^^^^^^^^^^
+
+When using GPU blending, you must choose the blend material type that you want to use: Unlit or Lit (Unlit by default). Select the ``VSRuntime`` node of the mesh to be blended and in the Inspector, select the material type in the ``Blend Material Type`` dropdown.
+
+.. image:: _static/images/variation-blending/blend-material-type.png
+
+API:
+
+.. code-block:: python
+
+	@signal snapshot_blend_finished(to_path: String)
+	func tween_snapshots(from_path: String, to_path: String, duration: float = 1.0) -> bool
+	func tween_to_snapshot(to_path: String, duration: float = 1.0) -> bool
+	func stop_snapshot_blend() -> void
+
+Example:
+
+.. code-block:: python
+
+	# Signal to know when the blending is finished
+	runtime.snapshot_blend_finished.connect(_on_snapshot_blend_finished)
+
+	# Blend to the snapshot "res://Variations/arch-bloodish.tres" in 1 second
+	runtime.tween_to_snapshot("res://Variations/arch-bloodish.tres", 1.0)
+
+	func _on_snapshot_blend_finished(reached_path: String):
+	    # Determine the next snapshot to blend to
+	    if reached_path == "res://Variations/arch-bloodish.tres":
+	        to_path = "res://Variations/arch-greenish.tres"
+	    else:
+	        to_path = "res://Variations/arch-bloodish.tres"
+
+	    # Blend to the next snapshot
+	    runtime.tween_to_snapshot(to_path, 1.0)
+
+CPU blending
+^^^^^^^^^^^^^
+
+When using CPU blending, your mesh can have a custom shader and there's no shader overriden by ``VSRuntime``.
+
+The code is the same as GPU blending, except that the methods are appended with ``_cpu``:
+
+.. code-block:: python
+
+	@signal snapshot_blend_finished(to_path: String) # same signal as GPU blending
+	func tween_snapshots_cpu(from_path: String, to_path: String, duration: float = 1.0) -> bool
+	func tween_to_snapshot_cpu(to_path: String, duration: float = 1.0) -> bool
+	func stop_snapshot_blend_cpu() -> void
+
+Sample code and sample scene
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Blending is available in the ``Game`` scene and the ``Game.gd`` script. Just run it to see it in action!
+
+.. video:: _static/videos/blending-variations/blending-runtime.mp4
+    :width: 100%
