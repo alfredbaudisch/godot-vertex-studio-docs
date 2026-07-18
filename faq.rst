@@ -11,6 +11,21 @@ What is the minimum version of Godot required?
 
 Godot 4.3 or higher.
 
+My model has a custom shader and custom material, can I use Vertex Studio to paint it?
+--------------------------------------------------------------------------------------------
+
+Yes. 
+
+If your custom material (called ``Original Material`` in Vertex Studio) is not applied to your model when you open Vertex Studio, you can click the ``Restore Original Material`` button to apply it again.
+
+.. image:: _static/images/faq-restore-material.gif
+
+The tradeoff of keeping using your custom material while painting is that you won't be able to use Vertex Studio's debug views and view modes (like toggling texture, vertex colors on and off, visualizing different channels, etc.). For that, you can simply click ``Setup Unlit`` / ``Setup Lit`` anytime to switch to the paint material and then re-click ``Restore Original Material`` anytime to switch back to your custom material.
+
+You can do this as many times as you need during the usage of Vertex Studio, and upon closing Vertex Studio (or simply running the project), the original material will be restored automatically.
+
+.. image:: _static/images/faq-setup-material.gif
+
 Is there undo and redo support?
 ----------------------------------
 
