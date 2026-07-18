@@ -56,6 +56,9 @@ Let's create the shader that allows for the effects showed in the images above. 
 .. note::
     In the sample project the shader is the file ``S_MultitextureBlending.tres`` and the material is the file ``M_MultitextureBlending.tres``. The sample material uses textures from the folder ``res://Models/Textures/``.
 
+.. tip::
+    See the :doc:`material-setup` page and :ref:`faq-custom-shader-and-material` to learn more about material setup and shader usage.
+
 Assign the material to the mesh
 ------------------------------
 
@@ -158,3 +161,5 @@ In case you close and re-open the scene in Vertex Studio, and the mesh is all wh
 What you painted is still there in the mesh data, it's just not being displayed. To fix this, in ``Material > On restore`` make sure the value is ``Original Material`` and then click the restore button. 
 
 .. image:: _static/images/texture-blending-white-restore-material.png
+
+See the :ref:`troubleshooting-mesh-all-white` page for more.

@@ -32,7 +32,7 @@ Let's start by setting up the material with the material provided by Vertex Stud
 
 1. Open the "Scenario" scene and click the "Archway" node in the SceneTree.
 2. Activate Vertex Studio.
-3. Setup the :doc:`Vertex Studio material <materials>` by clicking the ``Setup Unlit`` under the ``Material`` secton. We are choosing the unlit material because we do not want lighting or shadows affecting the viewport and the mesh.
+3. Setup the :doc:`Vertex Studio material <material-setup>` by clicking the ``Setup Unlit`` under the ``Material`` secton. We are choosing the unlit material because we do not want lighting or shadows affecting the viewport and the mesh.
 
 .. image:: _static/images/tut-setupmaterial.png
 
@@ -40,6 +40,8 @@ Let's start by setting up the material with the material provided by Vertex Stud
     What happens with the material originally assigned to the mesh? Vertex Studio will automatically restore the material once the interface is closed. You can also restore it immediately by clicking the ``Restore Material`` button (the one with the counterclockwise arrow icon).
     
     You can alternate between the original material and the setup materials any time by clicking the buttons as needed. This workflow is actually encouraged to visualize between the Studio and the final result.
+
+    See the :doc:`material-setup` page and :ref:`faq-custom-shader-and-material` for more.
 
 .. warning::
     Make sure your mesh has at least one material assigned. If for example you use one of Godot's procedural meshes (like the Plane, Cube, Torus, etc.), you need to manually assign a material to the mesh before being able to paint the vertex colors with Vertex Studio.

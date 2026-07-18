@@ -103,3 +103,24 @@ The plugin font and icon colors do not match my Godot's theme
 This shouldn't happen since the plugin watches for themes changes in the editor with (``NOTIFICATION_THEME_CHANGED``). But if for some reason you face this, in order to make the plugin match Godot's theme, disable and re-enable the plugin or restart the editor.
 
 .. image:: _static/images/trouble-icon-colors.png
+
+.. _troubleshooting-mesh-all-white:
+
+The mesh is all white or I lost my vertex colors
+---------------------------------------
+
+If you are using a custom shader:
+
+- Make sure your custom shader uses the vertex color information somehow (like showing the colors themselves or using the colors for something else, like :doc:`blending textures <multi-texture-blending-tutorial>`).
+- If your shader already uses the vertex color information, make sure you are using the correct RGBA channels (see :doc:`rgba-channels`).
+- In Vertex Studio you can visualize the mesh with your original/custom material. In ``Material > On restore`` make sure the value is ``Original Material`` and then click the restore button. 
+
+.. image:: _static/images/texture-blending-white-restore-material.png
+
+If you are not using a custom shader:
+
+- Make sure your mesh has at least one material assigned.
+- In Vertex Studio you can just click ``Setup Unlit`` or ``Setup Lit`` to apply the setup painting material.
+- In ``Material > On restore``, you can use ``StandardMaterial3D``, and then Vertex Studio will apply Godot's default material with ``Vertex Colors: Use as Albedo`` enabled.
+
+See the :doc:`material-setup` page for more.

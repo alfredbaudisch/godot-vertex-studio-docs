@@ -11,6 +11,8 @@ What is the minimum version of Godot required?
 
 Godot 4.3 or higher.
 
+.. _faq-custom-shader-and-material:
+
 My model has a custom shader and custom material, can I use Vertex Studio to paint it?
 --------------------------------------------------------------------------------------------
 
@@ -25,6 +27,8 @@ The tradeoff of keeping using your custom material while painting is that you wo
 You can do this as many times as you need during the usage of Vertex Studio, and upon closing Vertex Studio (or simply running the project), the original material will be restored automatically.
 
 .. image:: _static/images/faq-setup-material.gif
+
+See the :doc:`material-setup` page for more.
 
 Is there undo and redo support?
 ----------------------------------
