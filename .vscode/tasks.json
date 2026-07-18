@@ -14,18 +14,20 @@
         }
       },
       "osx": {
-        "command": "source venv/bin/activate && make html",
+        "command": "make html",
         "options": {
-          "shell": {
-            "executable": "/bin/bash"
+          "cwd": "${workspaceFolder}",
+          "env": {
+            "PATH": "${workspaceFolder}/venv/bin:${env:PATH}"
           }
         }
       },
       "linux": {
-        "command": "source venv/bin/activate && make html",
+        "command": "make html",
         "options": {
-          "shell": {
-            "executable": "/bin/bash"
+          "cwd": "${workspaceFolder}",
+          "env": {
+            "PATH": "${workspaceFolder}/venv/bin:${env:PATH}"
           }
         }
       },
