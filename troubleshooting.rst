@@ -109,7 +109,8 @@ This shouldn't happen since the plugin watches for themes changes in the editor 
 The mesh is all white or I lost my vertex colors
 ---------------------------------------
 
-If you are using a custom shader:
+If you are using a custom shader
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Make sure your custom shader uses the vertex color information somehow (like showing the colors themselves or using the colors for something else, like :doc:`blending textures <multi-texture-blending-tutorial>`).
 - If your shader already uses the vertex color information, make sure you are using the correct RGBA channels (see :doc:`rgba-channels`).
@@ -117,10 +118,22 @@ If you are using a custom shader:
 
 .. image:: _static/images/texture-blending-white-restore-material.png
 
-If you are not using a custom shader:
+If you are not using a custom shader
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Make sure your mesh has at least one material assigned.
 - In Vertex Studio you can just click ``Setup Unlit`` or ``Setup Lit`` to apply the setup painting material.
 - In ``Material > On restore``, you can use ``StandardMaterial3D``, and then Vertex Studio will apply Godot's default material with ``Vertex Colors: Use as Albedo`` enabled.
+
+Are you using the right view modes?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Make sure ``Show Vertex Colors`` and ``Show Textures`` are enabled.
+
+.. image:: _static/images/faq-all-white.png
+
+- Make sure you are not debugging a specific channel. In ``View > Debug`` click ``Off``.
+
+.. image:: _static/images/faq-white-debug-off.png
 
 See the :doc:`material-setup` page for more.
