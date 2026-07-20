@@ -51,7 +51,6 @@ See the :doc:`support` page.
    
    features
    installation
-   shortcuts
 
 .. toctree::
    :hidden:
@@ -68,6 +67,7 @@ See the :doc:`support` page.
    :caption: Manual
 
    interface
+   shortcuts
    material-setup
    view-options
    selection-tools
