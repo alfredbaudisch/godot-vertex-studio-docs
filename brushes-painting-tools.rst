@@ -17,9 +17,9 @@ Painting Tools
 5. Paint Brush (Additive mode): the same as the Paint Brush, but in additive blending mode.
 6. Eraser (:kbd:`Shift+E`): remove color (also affected by the opacity setting).
 
-7. Precision Paint Brush: add the color of a single vertex under the cursor to the current active color with the current opacity. If opacity is 100%, the vertex color will be fully replaced by the current active color.
+7. Precision Paint Brush: a point-and-click tool with no brush size that locks onto the exact vertex/point under the cursor, where you can add the color of a single vertex under the cursor to the current active color with the current opacity. If opacity is 100%, the vertex color will be fully replaced by the current active color.
 
-    - Useful when there are big clumps of vertices nearby where you want precision, and especially useful when painting individual vertices in Split Shared Vertices mode:
+    - Useful when there are big clumps of vertices nearby where you want precision, and especially useful when painting individual vertices in Split Shared Vertices mode, with the Precision Paint Brush you can pick individual vertices of the clump fan:
     .. image:: _static/images/manual/painting-precision.gif
 
 8. Blur Brush: a smoothing brush that nudges each vertex's color under the brush radius toward the average of its 1-ring neighbours (crossing hard-edge seams too), creating soft gradients.
@@ -33,3 +33,20 @@ Painting Tools
     - Erase All does not respect opacity, it will completely remove the color of the all vertices or all vertices in the active selection.
 
 11. Color Picker: pick the color of the vertex under the cursor.
+
+Falloff Curves
+--------------
+
+.. image:: _static/images/manual/painting-falloff.png
+
+Falloff Curves: shape the brush's strength profile with Godot's curves. Different falloff graphs effectively become different brushes and "stamps".
+
+1. Custom falloff curve: click to open Godot's curve editor in the inspector and create a new curve or adjust an existing one.
+
+.. image:: _static/images/manual/painting-falloff-curves.gif
+
+2. Default falloff presets:
+
+    - Constant
+    - Linear
+    - Smooth
