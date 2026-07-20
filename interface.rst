@@ -7,7 +7,7 @@ Interface
    :class: interface-overview
 
    * - .. thumbnail:: _static/images/manual/interface.png
-          :width: 60%
+          :width: 80%
           :align: center
      - #. :doc:`material-setup`
        #. :doc:`view-options`
@@ -20,3 +20,8 @@ Interface
        #. :doc:`variations`
        #. :doc:`runtime-and-api`
        #. :doc:`mesh-tools`
+
+
+In Godot's 3D Viewport, while Vertex Studio is active, press :kbd:`Ctrl+F` (Mac: :kbd:`Cmd+F`) to open the tools popup at the cursor position:
+
+.. image:: _static/images/manual/interface-popup.png
