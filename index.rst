@@ -69,13 +69,17 @@ See the :doc:`support` page.
 
    interface
    material-setup
-   view-modes
-   brushes
+   view-options
    selection-tools
+   brushes-painting-tools
+   colors-palettes
    rgba-channels
+   replace-colors
    vertex-groups
    variations
    runtime-and-api
+   mesh-tools
+   merge-and-split-shared-vertices
    settings-and-preferences
 
 .. toctree::
@@ -87,3 +91,4 @@ See the :doc:`support` page.
    troubleshooting
    support
    license
+   about

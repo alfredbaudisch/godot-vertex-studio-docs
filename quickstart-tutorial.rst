@@ -103,7 +103,7 @@ If you want, you can first ``Erase from Selection`` (2) to clear the colors from
 .. image:: _static/images/tut-lasso.png
 
 .. note::	
-    DEVELOPER NOTE: The lasso tool is one of my favorite tools in the addon, even though it's not the main selling point (which is "painting vertices"), but it's one of the most useful tools when dealing with complex scenes and models (alongside ``Vertex Groups`` and painting individual ``Split Shared Vertices``), since it saves so much time by allowing for complex and weirdly shaped selections.
+    DEVELOPER NOTE: The lasso tool is one of my favorite tools in the addon, even though it's not the main selling point (which is "painting vertices"), but it's one of the most useful tools when dealing with complex scenes and models (alongside ``Variations`` and painting individual ``Split Shared Vertices``), since it saves so much time by allowing for complex and weirdly shaped selections.
 
 Color swatches and palettes
 ---------------------------------------------------------------------------

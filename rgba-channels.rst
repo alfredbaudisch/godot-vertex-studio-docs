@@ -23,7 +23,7 @@ To set the value of the channel, you can use the ``Brush``, ``Eraser`` or the ``
 Channel visualization and debugging
 ----------------------------------
 
-See :doc:`view-modes`.
+See :doc:`view-options`.
 
 Usage examples
 -----------------------

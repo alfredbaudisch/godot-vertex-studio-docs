@@ -21,10 +21,10 @@ Setup Material features
 
 - Automatically grabs the textures from the original material of the mesh.
 
-    - It also uses the same filtering (Linear, Nearest, etc.) as the original material.
+    - It also uses the same sampling (texture filtering such Linear, Nearest, etc.) as the original material.
 
 - Displays vertex colors.
-- Contains code that allows the usage of Vertex Studio's :doc:`debug views and view modes <view-modes>`.
+- Contains code that allows the usage of Vertex Studio's :doc:`debug views and view options <view-options>`.
 - Two variations: Unlit (unshaded and no shadows, uses the shader ``shaders/vertex_studio_unlit.gdshader``) and Lit (uses the shader ``shaders/vertex_studio_lit.gdshader``).
 
     - By using the Lit material you can correctly visualize smooth and hard surfaces.
