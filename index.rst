@@ -20,6 +20,7 @@ It has tools for:
 - Grouping vertices into vertex groups like Blender.
 - Creating and managing variations/snapshots of vertex colors, selections and vertex smoothness topology, creating non-destructive variations of a single mesh.
 - Switching between mesh variations at runtime and blending between variations.
+- Bindable shortcuts for all tools and actions.
 
 See :ref:`features-details` for detailed information about each feature.
  
@@ -80,7 +81,7 @@ See the :doc:`support` page.
    runtime-and-api
    mesh-tools
    merge-and-split-shared-vertices
-   settings-and-preferences
+   project-settings
 
 .. toctree::
    :hidden:

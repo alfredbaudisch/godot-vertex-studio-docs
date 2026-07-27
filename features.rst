@@ -93,7 +93,7 @@ Vertex Studio brushes and selections work in both **perspective and orthographic
 
   * **Tools & Tool Settings popup**: press :kbd:`Ctrl+F` over the viewport for a floating tool popup like Photoshop and Blender.
   * Full **Undo / Redo** integration with Godot's editor history, including the topology-changing normal edits.
-  * **Keyboard shortcuts** (see :doc:`shortcuts`).
+  * **Keyboard shortcuts** (see :doc:`shortcuts`): bindable shortcuts for all tools and actions.
   * **Settings persist** between sessions, and each mesh's Variation history is saved **with the scene** (and can be alternated in the scene with **Variations**).
 
 * **Performance considerations**

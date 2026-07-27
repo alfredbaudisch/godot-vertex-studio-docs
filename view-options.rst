@@ -42,6 +42,8 @@ View Options
 9. Vertex Size: how big the vertex overlay squares are.
 10. Draw Distance: how far the vertex overlay squares are visible.
 
+.. _performance-options:
+
 Debug and Performance Options
 -----------------------------
 
