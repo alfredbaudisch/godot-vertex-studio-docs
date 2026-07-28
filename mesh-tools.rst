@@ -31,7 +31,7 @@ When the vertex counts don't match
 
 The exact re-sync matches vertices by index, which only works while your mesh and the source model still have the same number of surfaces and the same vertex count per surface. That is the normal case after a UV-only edit.
 
-The counts differ when the painted mesh has more vertices than the source, which usually means you created hard edges with the ``Paint Normals`` brush (a hard edge splits a vertex into one per face, see :doc:`merge-and-split-shared-vertices`).
+The counts differ when the painted mesh has more vertices than the source, which usually means you created hard edges with the :ref:`paint-normals` brush (a hard edge splits a vertex into one per face, see :doc:`merge-and-split-shared-vertices`).
 
 In that case Vertex Studio offers a best-guess re-sync:
 

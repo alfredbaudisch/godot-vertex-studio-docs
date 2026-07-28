@@ -36,7 +36,7 @@ View Options
 8. Split Shared Vertices: fan coincident hard-edge vertices apart so each face's corner can hold its own color.
 
     - Displayed as "multiple squares" fanning out from the "physical vertex" per vertex.
-    - Requires hard edges / flat shading. You can create hard edges with the ``Paint Normals`` brush tool. See :doc:`merge-and-split-shared-vertices`.
+    - Requires hard edges / flat shading. You can create hard edges with the :ref:`paint-normals` brush tool.
     .. image:: _static/images/manual/merge-split-split.png
 
 9. Vertex Size: how big the vertex overlay squares are.

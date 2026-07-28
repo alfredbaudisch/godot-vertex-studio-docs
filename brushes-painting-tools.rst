@@ -50,3 +50,66 @@ Falloff Curves: shape the brush's strength profile with Godot's curves. Differen
     - Constant
     - Linear
     - Smooth
+
+.. _paint-normals:
+
+Paint Normals
+-------------
+
+.. note::
+    This feature requires Vertex Studio Pro ⭐.
+
+``Paint Normals`` is a brush that edits vertex normals instead of colors, so you can make edges hard or smooth directly in Godot, without going back to Blender.
+
+.. image:: _static/images/manual/painting-normals.png
+
+With the tool active, ``Paint Settings`` shows a ``Mode`` row:
+
+- ``Hard``: the brushed corners become faceted, each face keeps its own normal.
+- ``Smooth``: the brushed corners are averaged, so the edge shades smoothly.
+
+Brush size still applies, opacity and falloff do not: a normal is either hard or smooth, there is nothing in between.
+
+While the tool is active, the vertex squares are colored by their current state instead of their color:
+
+- Light **red** for *hard*.
+- Light **blue** for *smooth*.
+
+.. image:: _static/images/manual/paint-normals-red-blue.png
+
+.. important::
+    Painting normals is topological, it changes the mesh: making an edge hard splits the corner into one vertex per face, and making it smooth welds those vertices back into one. Tangents are regenerated afterwards.
+
+    Since a welded vertex can only hold one color and one UV, corners painted with different colors don't fully weld: they keep their separate vertices but shade smoothly.
+
+.. tip::
+    Painting normals is also highly related to the :doc:`split-and-merge-shared-vertices` view modes.
+
+Fill Normals
+^^^^^^^^^^^^
+
+With the tool active, the panel also shows a ``Fill Normals`` section to set the whole mesh at once:
+
+.. image:: _static/images/manual/normals-fill.png
+
+.. image:: _static/images/manual/normals-fill-selection.png
+
+- ``Fill All Hard`` / ``Fill All Smooth``: apply to every vertex.
+- With an active selection the buttons become ``Fill Selection Hard`` / ``Fill Selection Smooth`` and apply only to the selected vertices.
+
+.. video:: _static/videos/paint-normals-smooth-hard.mp4
+    :width: 100%
+
+.. tip::
+    Use the ``Setup Lit`` material while editing normals (see :doc:`material-setup`). The unlit material shades everything flat, so you won't see the difference between a hard and a smooth edge.
+
+Workflow: from a smooth model to painted hard corners
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. With ``Paint Normals`` in ``Hard`` mode, brush the edges you want faceted (or use ``Fill All Hard`` for a fully faceted look).
+2. Switch to ``Split Shared Vertices`` in ``View``. The corners you made hard now fan apart.
+3. Pick the ``Precision Paint Brush`` and paint each corner of the fan with its own color.
+4. Go back to ``Merge Shared Vertices`` when you are done, so normal painting behaves as usual again.
+
+.. tip::
+    Both the merge and split toggle and the normals tool can be bound to a key, see :doc:`shortcuts`.
