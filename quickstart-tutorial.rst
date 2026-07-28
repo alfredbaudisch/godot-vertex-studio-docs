@@ -153,6 +153,8 @@ In ``Paint Settings`` expand the ``Falloff`` section and click the graph. Create
 
 .. image:: _static/videos/vertexstudio-tutorial05-before-after.gif
 
+.. _tutorial-base-and-world-instances:
+
 Base mesh and world instances
 ---------------------------------
 
@@ -254,6 +256,8 @@ In your simple tutorial scene, let's create variations of the rock mesh in order
 9. Hit save and go back to the "RockLevel" scene. Now, notice the "Rock" nodes have a ``VSRuntime`` node as a children. If you can't see, right-click a "Rock" node and check ``Editable Children``.
 
 .. image:: _static/images/tut-level-vsruntime.png
+
+.. _tutorial-variations-inspector:
 
 10. Click a ``VSRuntime`` node and notice the ``Variation`` dropdown in the Inspector. Alternate between variations and see the result in the viewport. Also, you can select ``None`` to revert back to the base mesh, and if you overrode the mesh in this world instance, you can click ``Restore base instance`` anytime.
 
