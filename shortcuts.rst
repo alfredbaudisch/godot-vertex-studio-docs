@@ -2,7 +2,7 @@ Shortcuts
 =========================================
 
 .. note::
-    The majority of actions and tools in Vertex Studio DO NOT HAVE A SHORTCUT by default. They are available through the main panel or the "Tools and Tool Settings popup" (activated with :kbd:`Ctrl+F` in the 3D viewport). Every action can be bound to a key of your choice, see :ref:`bindable-shortcuts`.
+    Every tool and action in Vertex Studio can be bound to a key of your choice, see :ref:`bindable-shortcuts`, but notice that the majority them DO NOT HAVE A SHORTCUT ASSIGNED by default. You can acess the ones not bound byt a shortcut through the main panel or the "Tools and Tool Settings popup" (activated with :kbd:`Ctrl+F` in the 3D viewport). 
 
 Vertex Studio's shortcuts only fire while its panel is open and a ``MeshInstance3D`` is selected, so they don't take keys away from the rest of the editor.
 

@@ -16,11 +16,16 @@ Here's a preview of before and after the tutorial. It's the same models with the
 .. image:: _static/videos/vertexstudio-final-result.gif
 
 Project and addon setup
------
+-----------------------
 
 If you want to follow along with the tutorial, you can download the `sample project here <https://github.com/alfredbaudisch/GodotVertexStudio_Tutorial/archive/refs/heads/master.zip>`_. Extract the zip file and open the project in Godot.
 
 Then, download and activate the addon in your Godot project (the sample project does not come with the addon). See the :doc:`installation` page for more details.
+
+Shortcuts
+---------
+
+This tutorial uses the default shorcuts. You can bind and re-bind any Vertex Studio tool or action to a key of your choice, see the :doc:`shortcuts` page for more details.
 
 Material setup
 ---------------------------------------
@@ -61,7 +66,11 @@ Basic vertex painting with the brush and the eraser
 
 .. image:: _static/images/tut-pickcolor-andopacity.png
 
-3. In the viewport, you can increase and decrease the brush size by holding :kbd:`]` and :kbd:`[` respectively. You can also cycle through colors from the palette (Swatches) by pressing :kbd:`X` (or also open the tools popup with :kbd:`Ctrl+F`, but from now on, I'm not going to repeat this information).
+3. In the viewport, you can:
+
+  - Increase and decrease the brush size by holding :kbd:`]` and :kbd:`[` respectively.
+  - Cycle through colors from the palette (Swatches) by pressing :kbd:`X` (or also open the tools popup with :kbd:`Ctrl+F`, but from now on, I'm not going to repeat this information).
+  - Increase and decrease the brush opacity by holding :kbd:`/` and :kbd:`\\` respectively.
 
 4. If you make a mistake, you can undo normally or use the ``Eraser`` tool by clicking its icon or by pressing :kbd:`Shift+E`. The eraser is also a brush, thus opacity also affects how hard or soft the eraser is.
 
