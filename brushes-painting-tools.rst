@@ -82,8 +82,8 @@ While the tool is active, the vertex squares are colored by their current state 
 
     Since a welded vertex can only hold one color and one UV, corners painted with different colors don't fully weld: they keep their separate vertices but shade smoothly.
 
-.. tip::
-    Painting normals is also highly related to the :doc:`split-and-merge-shared-vertices` view modes.
+.. important::
+    Painting normals is also highly related to the :doc:`merge-and-split-shared-vertices` view mode.
 
 Fill Normals
 ^^^^^^^^^^^^
@@ -103,13 +103,5 @@ With the tool active, the panel also shows a ``Fill Normals`` section to set the
 .. tip::
     Use the ``Setup Lit`` material while editing normals (see :doc:`material-setup`). The unlit material shades everything flat, so you won't see the difference between a hard and a smooth edge.
 
-Workflow: from a smooth model to painted hard corners
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-1. With ``Paint Normals`` in ``Hard`` mode, brush the edges you want faceted (or use ``Fill All Hard`` for a fully faceted look).
-2. Switch to ``Split Shared Vertices`` in ``View``. The corners you made hard now fan apart.
-3. Pick the ``Precision Paint Brush`` and paint each corner of the fan with its own color.
-4. Go back to ``Merge Shared Vertices`` when you are done, so normal painting behaves as usual again.
-
 .. tip::
-    Both the merge and split toggle and the normals tool can be bound to a key, see :doc:`shortcuts`.
+    Remember that any tool and action can be bound to a key, see :doc:`shortcuts`.
