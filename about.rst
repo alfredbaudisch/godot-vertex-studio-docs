@@ -9,8 +9,8 @@ Links
 -----
 
 - Website, dev blog and experiment logs: https://alfredbaudisch.com
-- Games: https://splitpainter.itch.io and https://pardallgames.com
-- Vertex Studio on itch.io (Free and Pro): https://splitpainter.itch.io/vertex-studio
+- Games: https://alfredbaudisch.itch.io and https://pardallgames.com
+- Vertex Studio on itch.io (Free and Pro): https://alfredbaudisch.itch.io/vertex-studio
 - Vertex Studio on the Godot Asset Store (Free): https://store.godotengine.org/asset/alfredbaudisch/vertex-studio/
 
 Social media
