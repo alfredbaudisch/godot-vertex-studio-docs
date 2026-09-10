@@ -37,9 +37,22 @@ Swatch options
 - ``Import PNG Palette…``: read the colors out of a PNG image. Every unique pixel color becomes a swatch, in the order they appear in the image. The PNG does not need to be inside your project. For example, you can import palettes from `Lospec <https://lospec.com/palette-list>`_.
 - ``Save Palette…``: save the current swatches as a Godot Resource file.
 - ``Load Palette…``: load a palette resource back into the swatches.
+- ``Browse Lospec Palettes…``: pick from 500 `Lospec <https://lospec.com/palette-list>`_ palettes without leaving Godot, see below.
 - ``Clear``: remove all swatches.
 
 .. image:: _static/images/manual/colors-import-palette.png
+
+Lospec browser
+--------------
+
+``Browse Lospec Palettes…`` opens the `Lospec <https://lospec.com/palette-list>`_ list with the top 500 palettes (the list is bundled with Vertex Studio, no internet connection required).
+
+- **Click a palette** anywhere, to load it onto the swatches (it replaces your swatches with the new palette).
+- ``Cancel`` restores your original swatches. ``Done`` to confirm the selection.
+- **Colors filter**: ``Any``, ``Max``, ``Min`` or ``Exact``. ``Max 16`` shows palettes of up to 16 colors, ``Exact 8`` palettes with exactly 8 colors.
+- It's sorted by the Lospec's ranking.
+
+A palette loaded here is exactly the same as downloading its PNG file and using the option ``Import PNG Palette`.
 
 Palette files
 -------------
