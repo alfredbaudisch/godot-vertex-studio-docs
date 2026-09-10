@@ -76,7 +76,7 @@ To blend / tween between variations at runtime, ``VSRuntime`` provides a public 
 - **CPU blending**: slower, but your mesh can have a custom shader.
 
 .. warning::
-    Blending/tweening variations at runtime is VERY much still EXPERIMENTAL and there could be performance implications.
+    Blending/tweening variations at runtime can cause performance issues.
 
     Changing to a variation directly and instantly (even at runtime, as shown above) is much faster and more efficient (and it's production ready).
 
@@ -129,6 +129,23 @@ The code is the same as GPU blending, except that the methods are appended with 
 	func tween_snapshots_cpu(from_path: String, to_path: String, duration: float = 1.0) -> bool
 	func tween_to_snapshot_cpu(to_path: String, duration: float = 1.0) -> bool
 	func stop_snapshot_blend_cpu() -> void
+
+Blending using the VSBlendCycler node
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+``VSBlendCycler`` is a ready to use node that does everything automatically: add it to a mesh that has a ``VSRuntime``, and it keeps blending through that mesh's variations. It is also an example for how to control the runtime, since everything it does goes through the public API documented above.
+
+Setup:
+
+1. The mesh must have a ``VSRuntime`` node and at least one variation (see `Setup`_ above).
+2. Select the ``MeshInstance3D``, click ``Add Child Node`` (``Ctrl+A``) and add a ``VSBlendCycler``.
+
+It reads the VSRuntime and variations from the mesh automatically.
+
+.. note::
+    You can also add it under the ``VSRuntime`` node itself.
+
+See :ref:`runtime-vsblendcycler` for the full description of the node's properties and how to control it from code.
 
 Sample code and sample scene
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

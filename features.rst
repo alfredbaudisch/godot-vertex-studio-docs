@@ -75,7 +75,7 @@ Vertex Studio brushes and selections work in both **perspective and orthographic
 
   * Add a **VSRuntime child** to any ``MeshInstance3D`` to switch Variations from the **Inspector** and/or **in-game at runtime** via an API.
   * **Restore base instance**: re-link a painted world instance back to its **source scene** (dropping the local mesh override) non-destructively, even after you've already overridden it locally.
-  * **Blend / tween between two Variations** (EXPERIMENTAL): smoothly interpolate a mesh from one Variation to another over time; **vertex colors all blend at once**, allowing for mesh morphing: day ↔ night, healthy ↔ damaged, cold ↔ hot, etc.
+  * **Blend / tween between two Variations**: smoothly interpolate a mesh from one Variation to another over time; **vertex colors all blend at once**, allowing for mesh morphing: day ↔ night, healthy ↔ damaged, cold ↔ hot, etc.
 
     * **GPU blending**: the entire tween is a **single shader uniform**. Uses Vertex Studio's bundled **lit / unlit blend shaders**. Faster than CPU blending, but no custom material support.
     * **CPU blending**: slower than GPU blending, but it **keeps your mesh's own custom material / shader**.

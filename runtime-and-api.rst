@@ -51,9 +51,58 @@ Blending between variations
 ``VSRuntime`` can also interpolate a mesh from one variation to another over a duration, on the GPU (faster, uses Vertex Studio's blend shaders) or on the CPU (slower, keeps your own custom shader).
 
 .. warning::
-    Blending is still EXPERIMENTAL and there can be performance implications. Switching variations instantly, as shown above, is fast and production ready.
+    Blending can have performance implications. Switching variations instantly, as shown above, is fast and production ready.
 
 The full walkthrough, with a sample project, is in the :doc:`blending-variations-runtime` tutorial.
+
+.. _runtime-vsblendcycler:
+
+The VSBlendCycler node
+-------------------------------------------------
+
+If all you want is a mesh that keeps blending through its variations, add a ``VSBlendCycler`` node to a ``MeshInstance3D`` that has a ``VSRuntime`` and press play: it finds the runtime next to it, reads the mesh's variations, and cycles through them (or ping-pongs between two), on the GPU or on the CPU, with the durations you set in the Inspector.
+
+.. tip::
+    The node is also an example of controlling ``VSRuntime`` from your own scripts: everything it does uses the VSRuntime :ref:`runtime-and-api-api-reference`. Source code in ``addons/vertex_studio/core/vs_blend_cycler.gd``.
+
+VSBlendCycler properties
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``Runtime``: the ``VSRuntime`` to drive. Leave it empty to use the one next to the node.
+- ``Mode``:
+
+  - ``Cycle All``: walk every variation of the mesh in order, looping.
+  - ``Ping Pong``: bounce between two variations, chosen in the ``Ping Pong`` group below (leave the two empty to make it use the mesh's first two variations).
+
+- ``Blend Duration``: time in seconds.
+- ``Hold Time``: time in seconds to rest on a variation before blending onward.
+- ``Include Baseline``: include the base mesh (``None``) as a step of the cycle.
+- ``Play On Start``: start blending automatically when the scene runs (when off, it needs to be started from code).
+- ``Blend Engine``: ``GPU`` or ``CPU``, the two engines described above. ``GPU`` is much cheaper per frame but renders the mesh with Vertex Studio's blend shader while the blend runs (``Unlit`` or ``Lit``, per the ``VSRuntime`` node's ``Blend Material Type``); ``CPU`` keeps the mesh's own material.
+- ``Verbose``: print every transition, to see what the cycle is doing.
+
+.. image:: _static/images/variation-blending/variationtween.gif
+
+Driving VSBlendCycler from code
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
+
+	@onready var cycler: VSBlendCycler = get_node("Archway/VSBlendCycler")
+
+	func _ready() -> void:
+	    # Start the cycle (when Play On Start is unchecked)
+	    cycler.start_blending()
+
+	    # Stop it
+	    cycler.stop_blending()
+
+	    # Blend to one specific variation and stay there ("" is the baseline)
+	    cycler.blend_to("res://Variations/arch-greenish.tres")
+
+``start_blending()`` re-reads the variation list every time it is called (it's also how you restart the cycle).
+
+.. _runtime-and-api-api-reference:
 
 API reference
 -------------
