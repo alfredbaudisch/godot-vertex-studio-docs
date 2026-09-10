@@ -21,6 +21,7 @@ It has tools for:
 - Creating and managing variations/snapshots of vertex colors, selections and vertex smoothness topology, creating non-destructive variations of a single mesh.
 - Switching between mesh variations at runtime and blending between variations.
 - Bindable shortcuts for all tools and actions.
+- Mesh tools: export from Godot to gLTF and OBJ.
 - Available in two versions: GDScript (for low poly and retro games) and C++ GDExtension (supports millions of vertices).
 
 See :ref:`features-details` for detailed information about each feature.
