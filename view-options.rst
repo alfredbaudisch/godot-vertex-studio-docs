@@ -17,6 +17,10 @@ View Options
 4. Toggle display vertex overlay (display vertices as squares over the mesh, each square is colored with its vertex color)
 
     - Keep off if you are suffering from performance issues.
+    - Drawing the cloud can cost frames even with the GDExtension edition, depending on the machine. Vertex Studio switches this off by itself past the *Very Dense Mesh Vertex Count* project setting, see :doc:`project-settings`.
+
+.. note::
+    ``Always Show Vertices`` is only practical on light meshes. Past a few tens of thousands of vertices it draws so many squares that they merge into an unreadable clump, so Vertex Studio switches it off automatically above the *Dense Mesh Vertex Count* project setting, and subsamples the cloud on dense meshes. See :ref:`gdextension-always-show-vertices`.
 
 5. Always Show Vertices:
 

@@ -145,8 +145,17 @@ These are all the bindable actions, with their default keys:
    * - Material
      - Restore Material
      - *unbound*
-   * - Source Mesh
+   * - Mesh Tools
      - Resync Uvs
+     - *unbound*
+   * - Mesh Tools
+     - Export As Obj
+     - *unbound*
+   * - Mesh Tools
+     - Export As Gltf
+     - *unbound*
+   * - Mesh Tools
+     - Re Export
      - *unbound*
 
 .. note::
