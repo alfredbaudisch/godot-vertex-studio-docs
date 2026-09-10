@@ -37,7 +37,7 @@ Drawing one square per vertex is the most expensive part of the overlay, and **A
 The setting is an automatic override: your own value comes back as soon as you select a lighter mesh, and if you turned ``Always Show Vertices`` back on in the meantime, your click wins. See :doc:`view-options` for both options.
 
 .. note::
-  :doc:`Show Vertices <view-options>` is deliberately left alone: it only draws while you are actually using a tool.
+  :doc:`Show Vertices <view-options>` has its own higher threshold, see *Disable Show Vertices On Very Dense Meshes* below: it only draws while you are actually using a tool.
 
 Dense Mesh Vertex Count
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -45,6 +45,20 @@ Dense Mesh Vertex Count
 Default: **1000** vertices (minimum 100).
 
 The vertex count at which a mesh counts as "dense" for the option above.
+
+Disable Show Vertices On Very Dense Meshes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Default: **on**.
+
+Past *Very Dense Mesh Vertex Count* vertices Vertex Studio switches Show Vertices off.
+
+Very Dense Mesh Vertex Count
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Default: **250,000** vertices in the GDExtension edition, **20,000** in the GDScript one.
+
+The vertex count at which a mesh counts as "very dense" for the option above. Lower it if the vertex cloud is costing you frames on your machine, increase it if your machine handles more than the default.
 
 Realtime Painting Triangle Limit
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -62,9 +76,25 @@ Shortcuts
 
 .. image:: _static/images/manual/settings-shortcuts.png
 
-Every tool and action of Vertex Studio is bindable here, grouped by category (Tools, Actions, View, Material, Source Mesh and Brush). Most of them ship unbound on purpose, to stay out of the way of Godot's own 3D viewport shortcuts.
+Every tool and action of Vertex Studio is bindable here, grouped by category (Tools, Actions, View, Material, Mesh Tools and Brush). Most of them ship unbound on purpose, to stay out of the way of Godot's own 3D viewport shortcuts.
 
 The default keys, the full list of bindable actions and how to rebind them are all in :doc:`shortcuts`.
+
+Async Fill Normals Vertex Count
+-------------------------------
+
+Default: **100000**.
+
+``Fill All Hard`` and ``Fill All Smooth`` have to touch every vertex of the mesh, which can freeze the editor on dense meshes. At or above this vertex count, Vertex Studio runs the fill in the background (off the main thread).
+
+See :ref:`gdextension-normals-performance`.
+
+Show Mesh Statistics In Panel
+-----------------------------
+
+Default: **off**.
+
+Adds a **Targets** section at the top of the panel with the number of meshes, vertices and triangles of the current selection, plus how many vertices are selected, and the ``Include Children`` checkbox.
 
 Where Vertex Studio stores things
 ---------------------------------
