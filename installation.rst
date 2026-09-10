@@ -10,6 +10,9 @@ Download and extract
 
 .. image:: _static/images/installation-addons-folder.png
 
+.. tip::
+    Dealing with meshes with hundreds of thousands or even MILLIONS of vertices? Use the **GDExtension edition** instead, which adds a C++ core and improves performance for up to millions of vertices. You don't need to compile anything, pre-compiled libraries are included, the installation process is the same (and it's also available in the Free and Pro versions). See :ref:`gdextension`.
+
 .. note::	
     Vertex Studio requires **Godot 4.3 or higher**.
 
