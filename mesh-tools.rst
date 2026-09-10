@@ -1,7 +1,7 @@
 Mesh Tools
 =========================================
 
-Tools that work on the mesh as a whole, instead of on colors or selections, in the ``Source Mesh`` section, at the bottom of the panel.
+Tools that work on the mesh as a whole, instead of on colors or selections, in the ``Mesh Tools`` section, at the bottom of the panel.
 
 .. image:: _static/images/manual/source-mesh.png
 
@@ -16,7 +16,7 @@ When you paint a mesh, Vertex Studio saves the result inline in the scene file, 
 ``Re-sync UVs`` reads the source model again and copies the UVs (``UV``, ``UV2`` and the tangents) into your painted mesh, keeping everything Vertex Studio edited: vertex colors, normals and positions.
 
 1. Edit the UVs in your 3D application and save the model, Godot re-imports it as usual.
-2. Select the ``MeshInstance3D`` that you painted in Vertex Studio, expand ``Source Mesh`` and click ``Re-sync UVs``.
+2. Select the ``MeshInstance3D`` that you painted in Vertex Studio, expand ``Mesh Tools`` and click ``Re-sync UVs``.
 3. A summary tells you how many surfaces were re-synced and how many were skipped (if any).
 
 .. image:: _static/images/manual/source-mesh-resync-summary.png
@@ -43,3 +43,44 @@ It is a guess, not an exact mapping, so check the result. If it went wrong, undo
 
 - ``Don't ask again for this mesh``: check it and the best guess runs directly on the next re-sync of that mesh, with no dialog. It's remembered in ``res://.vertex_studio/prefs.cfg`` and keyed by the scene plus the mesh name, so renaming the node or moving the scene makes it ask once more.
 - Surfaces with no counterpart in the source model are skipped and reported in the summary.
+
+Export as glTF
+--------------
+
+.. note::
+    This feature requires Vertex Studio Pro ⭐.
+
+``Export as glTF`` writes the painted mesh through Godot's own glTF exporter, so you can take what you painted in Godot into Blender or anywhere else.
+
+1. Select the ``MeshInstance3D`` you painted and expand ``Mesh Tools``.
+2. Click ``Export as glTF`` and choose where to save it (it can be inside or outside the project).
+3. A summary tells you how many meshes, vertices and triangles were written.
+
+When exporting to glTF:
+
+- **Alpha is preserved:** glTF has a real vertex color channel (``COLOR_0``) with alpha in it, so what you paint into the A channel is preserved. This is the format to use when alpha is part of the work.
+- **Materials are preserved:** the mesh's original material is preserved and exported.
+- The colors are stored with 8 bits per channel, i.e. a value like ``0.25`` is saved as ``0.2471``.
+
+Export as OBJ
+-------------
+
+.. note::
+    This feature requires Vertex Studio Pro ⭐.
+
+``Export as OBJ`` writes the same painted mesh to Wavefront ``.obj``. The steps are the same as above.
+
+When exporting to OBJ:
+
+- **Vertex colors**: as the ``v x y z r g b``: OBJ has no color channel, the color is written as extra numbers on the vertex line. Blender 4+ and MeshLab read it, and an application that doesn't know the extension still reads the position and ignores the rest.
+- **Alpha channel**: as a 7th number (``v x y z r g b a``), if you tick ``Include alpha`` under the button. It's off by default, because most applications don't read it: Godot's own OBJ importer takes the ``r g b`` and discards the alpha, and also Blender (tested on 5.1: alpha is 1.0). Use ``Export as glTF`` when needing to use the alpha channel.
+- **UVs and normals**.
+- **Every target of the panel**: each one as its own object in the same file. With ``Include Children`` on, the children keep their placement from the scene.
+
+Re-export
+^^^^^^^^^
+
+Once a mesh has been exported, a ``Re-export OBJ`` or ``Re-export glTF`` button appears. It writes the same file again, in the same format and with the same settings.
+
+- The path, the format and the alpha choice are remembered per mesh in ``res://.vertex_studio/prefs.cfg`` (remembered when Godot is closed). Selecting the mesh again sets ``Include alpha`` back to what that export used.
+- Actions bindable with shortcuts in :menuselection:`Project Settings > General > Vertex Studio > Shortcuts > Mesh Tools`.
