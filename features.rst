@@ -15,6 +15,9 @@ Vertex Studio features in details
 .. note::
     Features marked with ⭐ are only available in the Pro edition.
 
+.. note::
+    Every feature below exists in both the **GDScript** and the **GDExtension** editions. The GDExtension edition adds a compiled native core that increases the amount of vertices supported per mesh: painting is smooth up to about 1M triangles and still usable from 2M to 4M, where the GDScript edition starts stuttering around 50k vertices. See :ref:`gdextension` for the full comparison, and :ref:`gdextension-installation` to install it.
+
 Vertex Studio brushes and selections work in both **perspective and orthographic** viewports, so you can freely move the camera in the 3D Viewport while painting and selecting.
 
 * **Vertex color painting**
@@ -95,6 +98,11 @@ Vertex Studio brushes and selections work in both **perspective and orthographic
   * Full **Undo / Redo** integration with Godot's editor history, including the topology-changing normal edits.
   * **Keyboard shortcuts** (see :doc:`shortcuts`): bindable shortcuts for all tools and actions.
   * **Settings persist** between sessions, and each mesh's Variation history is saved **with the scene** (and can be alternated in the scene with **Variations**).
+
+* **Mesh Tools** ⭐
+
+  * **Export as glTF** and **Export as OBJ**: meshes painted with Vertex Studio inside Godot can be re-exported to glTF or OBJ (use the vertices painted anywhere).
+  * **Re-sync UVs**: if you edit the mesh's UVs externally you can re-sync the UVs in Vertex Studio, preserving vertex colors and other vertex data (best guess approach).
 
 * **Performance considerations**
 
