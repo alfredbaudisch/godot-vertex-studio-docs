@@ -22,6 +22,8 @@ Setup Material features
 - Automatically grabs the textures from the original material of the mesh.
 
     - It also uses the same sampling (texture filtering such Linear, Nearest, etc.) as the original material.
+    - It respects the original material's **triplanar mapping**, with the same ``UV1 Scale``, ``Offset``, ``Triplanar Sharpness`` and ``World Triplanar``, if present. The albedo and the normal map also follow it.
+    - It keeps the original material **UV** scale (``UV1 Scale`` and ``Offset``).
 
 - Displays vertex colors.
 - Contains code that allows the usage of Vertex Studio's :doc:`debug views and view options <view-options>`.
