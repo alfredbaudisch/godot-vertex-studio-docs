@@ -4,7 +4,9 @@ Troubleshooting
 I have performance issues. It's slow to paint vertex colors with Vertex Studio.
 ----------------------------
 
-Try the following settings and toggles under "View", in order of importance:
+Use Vertex Studio **GDExtension edition**. The GDExtension edition solves most performance issues. See :ref:`gdextension`.
+
+If you want to use the GDScript edition or still have performance issues with the GDExtension edition, then try the following settings and toggles under "View", in order of importance:
 
 1. **Keep "Hide Inspector while active".** If nothing happens, close Vertex Studio and open it again (you can deselect your Mesh from the Scene Tree and re-select it). The important thing is that the Godot's Inspector must not be the active tab while painting (don't ask me why, but it removes most performance issues).
 2. **Reduce "Draw Dist".**
@@ -17,7 +19,6 @@ Try the following settings and toggles under "View", in order of importance:
 
 .. image:: _static/images/vertex_studio_godot_troubleshooting-2.jpeg
 
-
 Lastly, **try zooming in the Godot 3D Viewport**, getting as close as you can to your mesh and to the vertices that you want to work with, specially in denser meshes.
 Zoomed out, thousands of vertices being rendered under the brush:
 
@@ -26,6 +27,12 @@ Zoomed out, thousands of vertices being rendered under the brush:
 Zoomed in, just local vertices being rendered, the interface responsiveness is felt immediately:
 
 .. image:: _static/images/vertex_studio_godot_troubleshooting-4.jpeg
+
+.. tip::
+    If you regularly work with meshes of hundreds of thousands of vertices, the **GDExtension edition** supports painting meshes with millions of vertices. See :ref:`gdextension`.
+
+    Notice that even there, ``Always Show Vertices`` stays impractical on dense meshes (:ref:`gdextension-always-show-vertices`), and above ~50k vertices you
+    should save the scene as ``.scn`` (:ref:`gdextension-saving`).
 
 Vertex Colors do not appear in my model
 ---------------------------------------
@@ -41,7 +48,7 @@ Vertex Colors do not appear in my model
 - If you want Vertex Studio to place the ``StandardMaterial3D`` in your mesh automatically, choose ``StandardMaterial3D`` in "Material - On restore".
 
 .. image:: _static/images/trouble-materialrestore.png
-````
+
 When I paint, nothing happens
 ---------------------------------------
 
@@ -114,7 +121,7 @@ If you are using a custom shader
 
 - Make sure your custom shader uses the vertex color information somehow (like showing the colors themselves or using the colors for something else, like :doc:`blending textures <multi-texture-blending-tutorial>`).
 - If your shader already uses the vertex color information, make sure you are using the correct RGBA channels (see :doc:`rgba-channels`).
-- In Vertex Studio you can visualize the mesh with your original/custom material. In ``Material > On restore`` make sure the value is ``Original Material`` and then click the restore button. 
+- In Vertex Studio you can visualize the mesh with your original/custom material. In ``Material > On restore`` make sure the value is ``Original Material`` and then click the restore button.
 
 .. image:: _static/images/texture-blending-white-restore-material.png
 
@@ -137,3 +144,18 @@ Are you using the right view modes?
 .. image:: _static/images/faq-white-debug-off.png
 
 See the :doc:`material-setup` page for more.
+
+
+The editor is covered by a dark overlay saying "Fill Hard/Smooth Normals"
+------------------------------------------------------------------------
+
+That is Vertex Studio filling normals in the background, which it does instead of freezing the editor when the mesh is larger than the ``Async Fill Normals Vertex Count`` project setting. Vertex Studio ignores input while the overlay is up (including its own shortcuts). The overlay disappears when the fill finishes, with a notification.
+
+Filling **hard** normals is slow, because hard edges need one vertex per face, so the mesh has to be split and rebuilt, and a whole-mesh hard fill can end up tripling the vertex count. See :ref:`gdextension-normals-performance`.
+
+Vertex Studio buttons are empty
+-------------------------------
+
+.. image:: _static/images/trouble-no-icons.png
+
+This can happen in Godot 4.3. Just restart the editor after importing Vertex Studio.
