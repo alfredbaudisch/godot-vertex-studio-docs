@@ -2,14 +2,23 @@ FAQ
 =========================================
 
 Is Vertex Studio a standalone application?
----------------------------------------
+------------------------------------------------------------------------------
 
 No, it's a Godot Engine plugin (addon). It requires you to use it in a project inside the Godot editor.
 
 What is the minimum version of Godot required?
----------------------------------------
+------------------------------------------------------------------------------
 
 Godot 4.3 or higher.
+
+Is it GDScript or C++?
+---------------------------------------
+
+It's available in two versions:
+
+- A 100% GDScript one: the recommended version for low-poly and retro-stylized games.
+- And a C++ GDExtension version which supports millions of vertices per mesh. The GDExtension libraries come pre-compiled for all architectures, so it's plug and play for you, you don't have to compile anything.
+
 
 .. _faq-custom-shader-and-material:
 
@@ -38,17 +47,19 @@ Yes, undo history is implemented, you can undo and redo normally in Godot.
 .. _faq-max-triangles:
 
 What is the maximum amount of triangles per mesh that Vertex Studio can handle?
----------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
 
-From my tests, up until 20k triangles per mesh (plus children meshes) there's barely any noticeable performance impact.
+That depends on which edition you are using.
 
-If you have a scene with multiple separate meshes, there's no performance impact at all even if the scene has hundreds of thousands of triangles, since Vertex Studio processes only the currently selected mesh (and its children).
+**GDScript edition.** Up until 20k triangles per mesh (plus children meshes) there's barely any noticeable performance impact. From 20k to 80k triangles in a single mesh it's still possible to paint and select vertices, but the brush starts to get sluggish. I tested painting a mesh with 2.5 million triangles and neither Godot nor the addon crashed, but each brush stroke took a few seconds.
 
-From 20k to 80k triangles in a single mesh, it's still possible to paint and select vertices, but the brush starts to get sluggish.
+**GDExtension edition.** Painting up to about **1M triangles is smooth**, and from **2M to 4M** it is still usable in real time, with the occasional stutter. See :ref:`gdextension`.
 
-I even tested painting a mesh with 2.5 million triangles, and Godot nor the addon crashed, but each brush stroke took a few seconds to complete.
+Either way, if you have a scene with multiple separate meshes there's no performance impact from the others, since Vertex Studio only processes the currently selected mesh (and its children).
 
-When dealing with denser meshes, be sure to disable ``Show Wireframe``, ``Show Vertices`` and ``Always Show Vertices`` under ``View``.
+When dealing with denser meshes, be sure to disable ``Show Wireframe`` and ``Always Show Vertices`` under ``View``. ``Always Show Vertices`` in particular is not worth it past a few tens of thousands of vertices in either edition: it draws so many squares that the result is an unreadable clump (see :ref:`gdextension-always-show-vertices`).
+
+Above roughly 50k vertices, also save your scene as **.scn** rather than **.tscn**: see :ref:`gdextension-saving`.
 
 .. image:: _static/images/faq-disable-performance.png
 
@@ -76,7 +87,7 @@ And this is how the selected vertices look like when the character is in another
 .. _faq-vertex-painting-and-model-changes:
 
 What happens when I vertex paint a mesh with Vertex Studio and then update the source model externally (like Blender), does the updated mesh gets the previously painted vertex colors?
-------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 No. You cannot recover the vertex colors in this case not even with variations, since what you do in Vertex Studio is saved inline in the ``MeshInstance3D`` node, it overrides the mesh data from the external source file (Blender, GLTF, OBJ or FBX file), and by changing the source file, vertex and normal positions might change, which doesn't match the inlined data.
 
@@ -85,6 +96,6 @@ What you do in Vertex Studio is saved inline in the scene file that contains the
 .. image:: _static/images/tut-mesh-data.png
 
 What happens when I vertex paint a mesh with Vertex Studio and then update the source model externally (like Blender), does the ``MeshInstance3D`` node gets the model changes?
-------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 No. See :ref:`faq-vertex-painting-and-model-changes` above.
